@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  source: MyString
+  destinition: MyString
+  airline: one
+
+two:
+  number: MyString
+  source: MyString
+  destinition: MyString
+  airline: two

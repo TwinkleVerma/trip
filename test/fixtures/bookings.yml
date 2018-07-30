@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-07-27
+  status: MyString
+  cost: 
+  schedule: one
+  user: one
+
+two:
+  date: 2018-07-27
+  status: MyString
+  cost: 
+  schedule: two
+  user: two
