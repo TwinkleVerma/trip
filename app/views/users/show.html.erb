@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <h1 class="text-center"><%= @user.name.capitalize %></h1>
+  <div class="jumbotron">
+    <%= image_tag(get_user_image(current_user), size: "100", class: "rounded-circle align-right") %>
+    <p class="float-left">Email : <%= @user.email %></p>
+    <p class="float-left">Contact : <%= @user.contact %></p>
+    <%= link_to "Edit", edit_user_registration_path%>
+  </div>
+</div>

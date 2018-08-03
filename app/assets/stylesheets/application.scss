@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#nav_link{
+  font-size: 1.3em;
+}
+
+#user_icon{
+  margin-top: 50%;
+  margin-right: 10px;
+}
+
+#btn{
+	margin-left: 40px;
+}
+
+body, html {
+    height: 100%;
+}
+
+.bg {
+    background-image: asset-url('Trip.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+ 	background-size: cover;
+}
+
+.dropdown {
+	margin-right: 20%;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .menu {
+    top: 100%;
+    position: absolute;
+    display: none;
+    list-style: none; 
+    left: 0;
+    width: 200px;
+    margin: 0;
+}
+
+.dropdown:hover .menu {
+    display: block;
+}
+
+#ul_block{
+	background-color: white;
+	opacity: 0.8;
+	height: 200px;
+}
+
+#ul_block li{
+	padding-top: 20px;
+}
+
+.padding{
+	margin-top: 100px;
+}
+
+.page_padding{
+	margin-top: 5%;
+}
+
+
+.inline{
+  display: inline-block;
+  padding-left: 8%;
+}
+
+.inline-first{
+  display: inline-block;
+}
+.cost{
+  color: red;
+}
+
+.flight_list{
+  border: 2px solid #D2CE9F;
+  border-radius: 4px;
+  height: 70px;
+  padding-top:15px;
+  margin-top:3%;
+  width: 100%;
+}
+
+.button{
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+  background-color: red;
+  color: black;
+}
