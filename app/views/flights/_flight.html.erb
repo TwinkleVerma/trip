@@ -1,0 +1,16 @@
+<div id="com">
+  <h2>List of flights</h2>
+  <% @flight.each do  |flight| %>
+    <div class="flight_list">
+      <div class="inline">
+        <%= image_tag("/assets/indigologo.png", size: "32") %>
+        </div>
+      <div class="inline"><%=flight.number %></div>
+      <div class="inline"><%= get_flights_schedule(flight.id).depart_time.strftime("%H:%M")%><br><%=flight.source %></div>
+      <div class="inline"><%= get_flights_schedule(flight.id).arrival_time.strftime("%H:%M") %><br><%=flight.destinition %></div>
+      <div class="inline"><%= get_time_differnece(flight.id) %></div>
+      <div class="cost inline"><%= "₹ "+get_flights_schedule(flight.id).base_cost.to_s %></div>
+      <div class="inline"><%= link_to "BOOK NOW", new_user_booking_path(current_user), class: "button" %></div>
+    </div>
+  <% end %>
+</div>

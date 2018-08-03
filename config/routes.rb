@@ -9,14 +9,16 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-
+  
   resources :users, only: :show do
     resources :bookings, only: [:index, :create, :new]
     resource :image, on: :member
   end
   resource :bookings, except: [:index, :create, :new]
 
-  resources :flights, only: [:show, :index, :update, :destroy, :edit]
+  resources :flights, only: [:show, :index, :update, :destroy, :edit] do
+    get 'find', on: :collection
+  end
 
   resources :airlines do
     resources :flights, only: [:create, :new] do

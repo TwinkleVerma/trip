@@ -73,7 +73,7 @@ body, html {
 }
 
 .page_padding{
-	margin-top: 5%;
+	margin-top: 1%;
 }
 
 
@@ -105,4 +105,28 @@ body, html {
   width: 100px;
   background-color: red;
   color: black;
+}
+
+.search_div{
+  margin-top: 10px;
+  background-color: white;
+  height: 153px;
+  padding-top: 10px;
+  padding-left: 30%;
+}
+
+.text-box-class{
+  border: 1px solid #B2BCC8;
+  border-radius: 5px;
+  width: 436px;
+  height: 36px;
+} 
+
+.date{
+  width: 50%;
+  align: center;
+}
+
+#search_btn{
+  width: 50%;
 }
