@@ -4,7 +4,7 @@ $(document).ready(function(){
 		destination = $('#destination').val();
 		date = $('#date').val();
 		hash = {
-			url : '/flights/find', 
+			url : '/itineraries/find', 
 			type: 'GET', 
 			data: {
 				source: source,

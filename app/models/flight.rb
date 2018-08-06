@@ -1,5 +1,5 @@
 class Flight < ApplicationRecord
-  has_one :schedule, dependent: :destroy
+  has_many :schedules, dependent: :destroy
   validates_associated :schedule
   belongs_to :airline
   validates :number, presence: true, uniqueness: true

@@ -15,8 +15,8 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
     yield resource if block_given?
-    set_flash_message!(:notice, :confirmed)
     redirect_to after_confirmation_path_for(resource_name, resource)
+    flash[:success] = "Your email address has been successfully confirmed."
   end
 
   # protected

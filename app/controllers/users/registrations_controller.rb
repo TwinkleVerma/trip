@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  before_action :user_registration_paramns, only: [:create, :update]
 
   # GET /resource/sign_up
   def new
@@ -11,12 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new({:name => configure_sign_up_params[:name], :email => configure_sign_up_params[:email], :password => configure_sign_up_params[:password]})
+    @user = User.new({:name => user_registration_paramns[:name], :email => user_registration_paramns[:email], :password => user_registration_paramns[:password]})
     if @user.save
-      flash[:success] = "User Profile was successfully created"
+      flash[:success] = "Sign up successfully"
       redirect_to root_path
     else
-      flash[:danger] = "Can't create users account"      
+      flash[:danger] = "Can't sign up"      
       redirect_to new_user_registration_path
     end    
   end
@@ -28,14 +27,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    if @user.valid_password?(configure_account_update_params[:current_password])
-      if @user.update({:contact => configure_account_update_params[:contact]})
-        image_params = {avatar: configure_account_update_params[:user_image_attributes][:picture]}
+    if @user.valid_password?(user_registration_paramns[:password])
+      if @user.update({:contact => user_registration_paramns[:contact]})
+        image_params = {avatar: user_registration_paramns[:user_image_attributes][:picture]}
         image = @user.build_image(image_params)
         if image.save
+          flash[:success] = "User profile successfully updated"
           redirect_to flights_path
+        else
+          flash[:danger] = "Can't update profile"      
+          redirect_to edit_user_registration_path  
         end
+      else
+        flash[:danger] = "Can't update profile"
+        redirect_to edit_user_registration_path
       end
+    else
+      flash[:danger] = "Can't update profile"
+      redirect_to edit_user_registration_path
     end
   end
 
@@ -55,14 +64,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    params.require(:user).permit(:email, :name, :password)
-  end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    params.require(:user).permit(:contact, :current_password, user_image_attributes: [:picture])
+  def user_registration_paramns
+    params.require(:user).permit(:email, :name, :password, :contact, user_image_attributes: [:picture])
   end
 
   # The path used after sign up.

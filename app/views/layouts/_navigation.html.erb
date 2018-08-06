@@ -3,6 +3,7 @@
     <% if current_user == nil %>
     <div id="log_in" class="hide"><%= render 'users/sessions/new'%></div>
     <div id="sign_up" class="hide"><%= render 'users/registrations/new'%></div>
+    <hr>
     <% end %>
     <div class="navbar-header">
       <% if current_user==nil %>

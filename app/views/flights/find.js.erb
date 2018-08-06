@@ -1,6 +1,0 @@
-<% if @flight.empty? %>
-	$("#com").html("No flights found");
-<% else %>
-	$("#com").html("<%= escape_javascript(render(:partial => @flight)) %>");
-<% end %>
-$("#list").removeClass("hide");
