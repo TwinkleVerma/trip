@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     flash[:danger] = "Error in SignUp"
-    redirect_to root_path    
+    redirect_to root_path
   end
 
   # POST /resource/sign_in
@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     yield resource if block_given?
     flash[:success] = "Signed in successfully."
-    respond_with resource, location: after_sign_in_path(resource)
+    redirect_to root_path
   end
 
   # DELETE /resource/sign_out
@@ -30,7 +30,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path(resource)
     if resource.image != nil 
-      flights_path
+      itineraries_path
     else
       edit_user_registration_path
     end

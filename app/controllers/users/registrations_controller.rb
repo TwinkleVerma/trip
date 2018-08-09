@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         image = @user.build_image(image_params)
         if image.save
           flash[:success] = "User profile successfully updated"
-          redirect_to flights_path
+          redirect_to root_path
         else
           flash[:danger] = "Can't update profile"      
           redirect_to edit_user_registration_path  

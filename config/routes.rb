@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-  
+
   resources :users, only: :show do
     resources :bookings, only: [:create, :index]
     resource :image, on: :member
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :airlines do
     resource :image, on: :member
     resources :flights, only: [:create, :new] do
-      get :schedules, on: :member
+      resources :schedules, on: :member, only: :index
     end
   end
 

@@ -1,13 +1,7 @@
-<% if @itineraries == "old" %>
-	$("#com").html("Please select valid date");
-	$("#list").removeClass("hide")
-	$("#com").addClass("text-danger text-uppercase");
+<% if @itineraries.empty? %>
+	$("#list").html("No flights found");
+	$("#list").addClass("text-danger text-uppercase");
 <% else %>
-	<% if @itineraries.empty? %>
-		$("#com").html("No flights found");
-		$("#com").addClass("text-danger text-uppercase");
-	<% else %>
-		$("#com").html("<%= escape_javascript(render(partial: 'itineraries/itineraries',formats: [:html, :js, :json, :url_encoded_form],locale: [:en],handlers: [:erb, :builder, :raw, :ruby, :coffee, :jbuilder])) %>");
-	<% end %>
+	$("#list").html("<%= escape_javascript(render(partial: 'itineraries/itineraries',formats: [:html, :js, :json, :url_encoded_form],locale: [:en],handlers: [:erb, :builder, :raw, :ruby, :coffee, :jbuilder])) %>");
 <% end %>
 $("#list").removeClass("hide");

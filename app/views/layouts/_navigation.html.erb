@@ -6,38 +6,34 @@
     <hr>
     <% end %>
     <div class="navbar-header">
-      <% if current_user==nil %>
-        <%= link_to 'TRIP', root_path, class: "navbar-brand" %>
-      <% else %>
-        <%= link_to 'TRIP', flights_path, class: "navbar-brand" %>
-      <% end %>
+      <%= link_to 'TRIP', root_path, class: "navbar-brand" %>
     </div>    
       
-      <ul class="nav navbar-nav navbar-right dropdown">
+    <ul class="nav navbar-nav navbar-right dropdown">
         
-        <li class="nav-item active" id="nav_link">
-          <%= image_tag(get_user_image(current_user), size: "32", id: "user_icon") %>
-        </li>
-        <%if current_user != nil %>
-        <li class="nav-item active" id="nav_link">
-          <h2><%= current_user.name.capitalize %></h2>
-          
-          <ul class="menu navbar" id="ul_block">
-            <li class="nav-item active user_action nounderline">
-              <%= link_to 'My Account', user_path(current_user)%>
-            </li>
-            <li class="nav-item active user_action nounderline">
-              <%= link_to 'My Trips', user_bookings_path(current_user)%>
-            </li>
-            <li class="nav-item active user_action nounderline">
-              <%= link_to 'Print E-ticket'%>
-            </li>
-            <li class="nav-item active user_action nounderline">
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
-            </li>
-          </ul>
+      <li class="nav-item active" id="nav_link">
+        <%= image_tag(get_user_image(current_user), size: "32", id: "user_icon") %>
+      </li>
+      <%if current_user != nil %>
+      <li class="nav-item active" id="nav_link">
+        <h2><%= current_user.name.capitalize %></h2>
+        
+        <ul class="menu navbar" id="ul_block">
+          <li class="nav-item active user_action nounderline">
+            <%= link_to 'My Account', user_path(current_user)%>
+          </li>
+          <li class="nav-item active user_action nounderline">
+            <%= link_to 'My Trips', user_bookings_path(current_user)%>
+          </li>
+          <li class="nav-item active user_action nounderline">
+            <%= link_to 'Print E-ticket'%>
+          </li>
+          <li class="nav-item active user_action nounderline">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
+          </li>
+        </ul>
 
-        </li>
+      </li>
       <% else %>
         <%- if controller_name != 'sessions' %>
           <li class="nav-item active" id="nav_link">

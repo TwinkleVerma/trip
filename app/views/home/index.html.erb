@@ -1,1 +1,7 @@
-<h2>Hello User</h2>
+<% if !current_user.present? %> 
+	<%= render 'home/trip_home' %>
+<% else%>
+	<%= render 'itineraries/flightSearch' %>
+	<div class="jumbotron page_padding scrollable hide" id="list">  
+	</div>
+<% end %>

@@ -1,35 +1,33 @@
 <div class="search_div">
-	<%= form_tag('/itineraries', remote: true, method: 'GET', :html => {class: "form-vertical", role: "from"}) do |f| %>
+	<%= form_with url: '/itineraries', method: :get , :html => {class: "form-vertical itineraries-form", role: "form"} do |f| %>
 	<div class="form-group">
 		<div class="form-group inline-first">
-      <input type="text" name="source" id="source" list="src" placeholder="Source" autocomplete="off">
+      <input type="text" name="source" id="source" list="src" placeholder="Source" autocomplete="off" class="distinctecity">
+        <% cities = get_all_cities %>
         <datalist id="src">
-          <% CS.states(:in).each do |key, value| %>
-            <% CS.cities(key, :in).each do |key1, value1| %>
-              <option value= <%= key1 %> >
-            <% end %>
+          <% cities.each do |city| %>
+            <option value= <%= city %>>
           <% end %>
         </datalist>
       </div>
       <div class="form-group inline-first">
-      	<div><%= image_tag("/assets/wayto.png", size: "32") %></div>
+      	<div><%= image_tag("/assets/wayto.png", size: "32", id: "wayto") %></div>
       </div>
       <div class="form-group inline-first">
-        <input type="text" name="destinition" id="destinition" list="des" placeholder="Destinition" autocomplete="off">
+        <input type="text" name="destinition" id="destinition" list="des" placeholder="Destinition" autocomplete="off" class="distinctecity">
+        <% cities = get_all_cities %>
         <datalist id="des">
-          <% CS.states(:in).each do |key, value| %>
-            <% CS.cities(key, :in).each do |key1, value1| %>
-              <option value= <%= key1 %> >
-            <% end %>
+          <% cities.each do |city| %>
+            <option value= <%= city %>>
           <% end %>
         </datalist>
       </div>
 	</div>
 	<div class="form-group">
-        <%= date_field_tag :date, nil, class: "form-control date", required: "required", autocomplete: "off"%>
+        <%= date_field_tag :date, nil, class: "form-control date", autocomplete: "off", min: Time.now.strftime("%Y-%m-%d")%>
       </div>
       <div class="form-group">
-        <%= button_tag "SEARCH", class: "btn form-control btn-primary", id: "search_btn" %>
+        <%= f.submit "SEARCH", class: "btn form-control btn-primary", id: "search_btn" %>
       </div>
     <% end %>
 </div>
