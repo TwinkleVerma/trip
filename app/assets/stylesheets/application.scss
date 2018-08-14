@@ -143,3 +143,55 @@ label.error{
 input.error{
   border: 2px solid red;
 }
+
+#com{
+  background-color: white;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
+  height: 97%;
+}
+
+#right-div{
+  width: 80%;
+  overflow-y: scroll;  
+  float: right;
+  height: 90%;
+}
+
+#left-div{
+  float: left;
+  width: 20%;
+  height: 90%;
+}
+
+#airline_filter{
+  width: 80%;
+  height: 10%;
+  border: 1px solid #E8E7E4;
+  margin-bottom: 4px;
+}
+
+input[type=checkbox] {
+  margin-left: 70px;
+}
+
+#airline_image{
+  margin: 5%;
+}
+
+#airlines_name{
+}
+
+#min{
+  float: min;
+  color: red;
+}
+#max{
+  float: right;
+  color: red;
+}
+#val, #priceval{
+  padding-left: 25%;
+  color: blue;
+  }

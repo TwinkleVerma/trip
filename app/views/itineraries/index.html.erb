@@ -1,0 +1,43 @@
+<div id="com">
+  <div id="left-div">
+    <%= hidden_field_tag "source", @source%>
+    <%= hidden_field_tag "destinition", @destinition%>
+    <%= hidden_field_tag "date", @date%>
+    <h4>Apply Filter</h4>
+    <hr>
+    <!-- <p>Depart time from <%= @source.capitalize %></p>
+    <p class="time_from">12-6AM
+      <%= check_box_tag "airlines[time][morning]", "morning", false, class: 'airlines_time_checkbox'%>
+    </p>
+    <p class="time_from">6-12PM
+      <%= check_box_tag "airlines[time][noon]", "noon", false, class: 'airlines_time_checkbox'%>
+    </p>
+    <p class="time_from">12-6PM
+      <%= check_box_tag "airlines[time][evening]", "evening", false, class: 'airlines_time_checkbox'%>
+    </p>
+    <p class="time_from">6-12AM
+      <%= check_box_tag "airlines[time][night]", "night", false, class: 'airlines_time_checkbox'%>
+    </p>
+    <hr> -->
+    <p>Airlines</p>
+    <% @airlines = airline_details %>
+    <% @airlines.each do |airline| %>
+      <div id="airline_filter">
+        <%= image_tag(airline.image.avatar_url, size: "32", id: "airline_image") %>
+        <span id="airlines_name"><%= airline.name %></span>
+        <%= check_box_tag "airlines[name][#{airline.name}]", airline.name, false, class: 'airlines_name_checkbox'%>
+      </div>
+    <% end %>
+    <hr>
+    <p>Time duration</p>
+    <span id="min">1 hrs.</span><span id="val"></span><span id="max">10 hrs.</span>
+    <input type="range" min="1" max="10" value="10" id="time_duration">
+    <hr>
+    <p>Price Range</p>
+    <span id="min">₹ 1000</span><span id="priceval"></span><span id="max">₹ 8000</span>
+    <input type="range" min="1000" max="8000" value="8000" id="price" step="10">
+  </div>
+  <div id="right-div">
+    <%= render 'itineraries/itineraries' %>
+  </div>
+</div>

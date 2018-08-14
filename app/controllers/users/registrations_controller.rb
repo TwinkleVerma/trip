@@ -27,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
+    binding.pry
     if @user.valid_password?(user_registration_paramns[:password])
       if @user.update({:contact => user_registration_paramns[:contact]})
         image_params = {avatar: user_registration_paramns[:user_image_attributes][:picture]}

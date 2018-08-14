@@ -1,5 +1,5 @@
 <div class="search_div">
-	<%= form_with url: '/itineraries', method: :get , :html => {class: "form-vertical itineraries-form", role: "form"} do |f| %>
+	<%= form_with url: '/itineraries', local: true, method: :get , :html => {class: "form-vertical itineraries-form", role: "form"} do |f| %>
 	<div class="form-group">
 		<div class="form-group inline-first">
       <input type="text" name="source" id="source" list="src" placeholder="Source" autocomplete="off" class="distinctecity">

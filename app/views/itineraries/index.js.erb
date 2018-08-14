@@ -1,7 +1,1 @@
-<% if @itineraries.empty? %>
-	$("#list").html("No flights found");
-	$("#list").addClass("text-danger text-uppercase");
-<% else %>
-	$("#list").html("<%= escape_javascript(render(partial: 'itineraries/itineraries',formats: [:html, :js, :json, :url_encoded_form],locale: [:en],handlers: [:erb, :builder, :raw, :ruby, :coffee, :jbuilder])) %>");
-<% end %>
-$("#list").removeClass("hide");
+$('#right-div').html("<%= j (render 'itineraries/itineraries') %>");

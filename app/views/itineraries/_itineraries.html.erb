@@ -1,16 +1,18 @@
-<div id="com">
+<% if @itineraries.present? %>
   <h2>List of flights</h2>
   <% @itineraries.each do  |flight| %>
-    <div class="flight_list">
-      <div class="inline">
-        <%= image_tag("/assets/indigologo.png", size: "32") %>
-        </div>
-      <div class="inline"><%=flight.number %></div>
-      <div class="inline"><%= get_flights_schedules(flight)[0].depart_time.strftime("%H:%M")%><br><%=flight.source %></div>
-      <div class="inline"><%= get_flights_schedules(flight)[0].arrival_time.strftime("%H:%M") %><br><%=flight.destinition %></div>
-      <div class="inline"><%= get_time_differnece(flight) %></div>
-      <div class="cost inline"><%= "₹ "+ getFlightCost(flight).to_s %></div>
-      <div class="inline"><%= link_to "BOOK NOW", user_bookings_path(current_user), class: "button" %></div>
+  <div class="flight_list">
+    <div class="inline">
+      <%= image_tag(get_airline_logo(flight), size: "32") %>
     </div>
+    <div class="inline"><%=flight.number %></div>
+    <div class="inline"><%= get_flights_schedules(flight)[0].depart_time.strftime("%H:%M")%><br><%=flight.source %></div>
+    <div class="inline"><%= get_flights_schedules(flight)[0].arrival_time.strftime("%H:%M") %><br><%=flight.destinition %></div>
+    <div class="inline"><%= get_time_differnece(flight) %></div>
+    <div class="cost inline"><%= "₹ "+ getFlightCost(flight).to_s %></div>
+    <div class="inline"><%= link_to "BOOK NOW", user_bookings_path(current_user), class: "button" %></div>
+  </div>
   <% end %>
-</div>
+<% else %>
+  <h3>No flights found</h3>
+<% end %>
