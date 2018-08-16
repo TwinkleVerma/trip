@@ -1,4 +1,5 @@
 <div class="container-fluid booking jumbotron">
+  <% will_paginate @booking %>
   <div class="text-center bold">Your Trips</div>
   <% @booking.each do |booking| %>
     <div class="bookings">
@@ -71,4 +72,5 @@
       </table>
     </div>
   <% end %>
+  <center><%= paginate @booking %></center>
 </div>
