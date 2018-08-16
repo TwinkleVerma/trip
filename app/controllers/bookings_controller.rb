@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
   
   def index
-    @booking = Booking.where(user_id: params[:user_id]).order("date DESC").paginate(:page => params[:page], :per_page => 1)
+    @booking = Booking.where(user_id: params[:user_id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
   end
   
   def create
