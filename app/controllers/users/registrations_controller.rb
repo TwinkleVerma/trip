@@ -10,14 +10,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new({:name => user_registration_paramns[:name], :email => user_registration_paramns[:email], :password => user_registration_paramns[:password]})
-    if @user.save
-      flash[:success] = "Sign up successfully"
+    if (User.where(:email => user_registration_paramns[:email]).exists?)
+      flash[:danger] = "Can't sign up, Email Exist!"      
       redirect_to root_path
     else
-      flash[:danger] = "Can't sign up"      
-      redirect_to new_user_registration_path
-    end    
+      @user = User.new({:name => user_registration_paramns[:name], :email => user_registration_paramns[:email], :password => user_registration_paramns[:password]})
+      if @user.save
+        flash[:success] = "Sign up successfully"
+        redirect_to root_path
+      else
+        flash[:danger] = "Can't sign up"      
+        redirect_to root_path
+      end    
+    end
   end
 
   # GET /resource/edit
@@ -27,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    binding.pry
     if @user.valid_password?(user_registration_paramns[:password])
       if @user.update({:contact => user_registration_paramns[:contact]})
         image_params = {avatar: user_registration_paramns[:user_image_attributes][:picture]}

@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     yield resource if block_given?
     flash[:success] = "Signed in successfully."
-    redirect_to root_path
+    redirect_to after_sign_in_path(resource)
   end
 
   # DELETE /resource/sign_out
@@ -30,7 +30,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path(resource)
     if resource.image != nil 
-      itineraries_path
+      root_path
     else
       edit_user_registration_path
     end

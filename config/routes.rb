@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :index]
     resource :image, on: :member
   end
-  resource :bookings, except: [:create, :index]
+  resources :bookings, except: [:create, :index]
 
   resources :flights, only: [:show, :index, :update, :destroy, :edit]
 

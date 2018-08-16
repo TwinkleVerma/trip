@@ -1,0 +1,74 @@
+<div class="container-fluid booking jumbotron">
+  <div class="text-center bold">Your Trips</div>
+  <% @booking.each do |booking| %>
+    <div class="bookings">
+      <table>
+        <tr>
+          <th>DATE OF JOURNEY : </th>
+          <td class="bold"><%= booking.date %></td>
+        </tr>
+        <tr>
+          <th>AIRLINE
+          </th>
+          <td><%= image_tag(get_schedule_flight_image(booking.schedule_id), size: "32") %> <%= get_airline_name(get_schedule_detail(booking.schedule_id).flight_id)%>
+          </td>
+        </tr>
+        <tr>
+          <th>FLIGHT ID : </th>
+          <td>
+            <%= get_schedule_flight_detail(booking.schedule_id).number %>
+          </td>
+        </tr>
+        <tr>
+          <th>SOURCE : </th>
+          <td>
+            <%= get_flight_detail(get_schedule_detail(booking.schedule_id).flight_id).source.capitalize %>
+              (<%= get_schedule_detail(booking.schedule_id).depart_time.strftime("%H:%M")%>)
+            </td>
+        </tr>
+        <tr>
+          <th>DESTINITON : </th>
+          <td>
+            <%= get_flight_detail(get_schedule_detail(booking.schedule_id).flight_id).destinition %>
+        (<%= get_schedule_detail(booking.schedule_id).arrival_time.strftime("%H:%M") %>)
+        </td>
+        </tr>
+        <tr>
+          <th>TIME DURATION :</th>
+          <td>
+            <%= get_differnce_between_depart_time_and_arrival_time(booking.schedule_id) %>
+          </td>
+        </tr>
+        <tr>
+          <th>AMOUNT CHARGED : </th>
+          <td id="cost<%= booking.id %>">
+            <% if booking.status == 'confirmed' %>
+              <%= "₹ "+booking.cost.to_s %>
+            <% else %>
+              <del><%= "₹ "+booking.cost.to_s %></del>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>STATUS : </th>
+          <% if booking.status == 'confirmed' %>
+            <td class="text-success bold" id="status<%= booking.id %>">
+              <%= booking.status.capitalize %>
+            </td>
+          <% else %>
+            <td class="text-danger bold">
+              <%= booking.status.capitalize %>
+            </td>
+          <% end %>
+        </tr>
+        <tr>
+          <% if booking.status == 'confirmed' %>
+            <th colspan="2">
+              <%= link_to "CANCEL BOOKING", 'javascript:void(0)',booking_id: booking.id, class: 'btn btn-xs btn-danger cancel_booking_button', id: 'cancel_button'+booking.id.to_s %>
+            </th>
+          <% end%>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

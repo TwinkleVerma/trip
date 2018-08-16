@@ -187,11 +187,74 @@ input[type=checkbox] {
   float: min;
   color: red;
 }
+
 #max{
   float: right;
   color: red;
 }
+
 #val, #priceval{
   padding-left: 25%;
   color: blue;
-  }
+}
+
+.bold{
+  font-weight: 1000;
+  font-size: 1.7em;
+}
+
+.booking_details{
+  margin-top: 3%;
+  font-size: 1.3em;  
+  margin-left: 10%;
+}
+
+#booking_btn{
+  margin-top: 5%;
+  height: 50px;
+  width: 160px;
+  font-size: 1.5em;
+}
+
+.booking_list{
+  padding-left: 8%;
+}
+
+.bookings{
+  border: 1px solid #D2CE9F;
+  margin-top: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%
+}
+
+
+table{
+  width: 100%;
+}
+
+th{
+  padding-left: 30%;
+  font-size: 1.3em;
+}
+
+td{
+  font-size: 1.3em;
+}
+
+table th, td{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.cancel_booking_button{
+  height: 40px;
+  padding-top: 5px;
+  width: 250px;
+  font-weight: 800;
+  font-size: 1.3em;
+}
+
+.booking{
+  margin-top: 2%;
+  margin-right: 10%;
+}

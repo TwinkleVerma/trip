@@ -10,7 +10,7 @@
     <div class="inline"><%= get_flights_schedules(flight)[0].arrival_time.strftime("%H:%M") %><br><%=flight.destinition %></div>
     <div class="inline"><%= get_time_differnece(flight) %></div>
     <div class="cost inline"><%= "₹ "+ getFlightCost(flight).to_s %></div>
-    <div class="inline"><%= link_to "BOOK NOW", user_bookings_path(current_user), class: "button" %></div>
+    <div class="inline"><%= link_to "BOOK", new_booking_path(current_user, schedule: get_flights_schedules(flight)[0], cost: getFlightCost(flight), flight: flight, date: @date), class: "button" %></div>
   </div>
   <% end %>
 <% else %>

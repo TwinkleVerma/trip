@@ -1,0 +1,5 @@
+$("td#cost<%=@booking.id%>").html('<del><%= "₹ "+@booking.cost.to_s %></del>');
+$('#status<%=@booking.id%>').removeClass('text-success');
+$("#status<%=@booking.id%>").html('<%= @booking.status.capitalize %>');
+$('#status<%=@booking.id%>').addClass('text-danger');
+$("#cancel_button<%=@booking.id%>").hide();

@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', function() {
   var airline_time = [];
   var airline_name = [];
-  var time_duration = 0;
-  var price_range = 0;
+  var time_duration = '';
+  var price_range = '';
   var data = {};
   var source = $('#source').val();
   var destinition = $('#destinition').val();

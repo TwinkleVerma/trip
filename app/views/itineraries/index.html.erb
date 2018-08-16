@@ -5,7 +5,7 @@
     <%= hidden_field_tag "date", @date%>
     <h4>Apply Filter</h4>
     <hr>
-    <!-- <p>Depart time from <%= @source.capitalize %></p>
+    <p>Depart time from <%= @source.capitalize %></p>
     <p class="time_from">12-6AM
       <%= check_box_tag "airlines[time][morning]", "morning", false, class: 'airlines_time_checkbox'%>
     </p>
@@ -18,7 +18,7 @@
     <p class="time_from">6-12AM
       <%= check_box_tag "airlines[time][night]", "night", false, class: 'airlines_time_checkbox'%>
     </p>
-    <hr> -->
+    <hr>
     <p>Airlines</p>
     <% @airlines = airline_details %>
     <% @airlines.each do |airline| %>

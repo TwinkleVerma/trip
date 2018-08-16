@@ -1,0 +1,44 @@
+<div class="containor-fluid booking  jumbotron">
+  <h2 class="text-center text-primary">Booking Details</h2>
+  <%= form_with url: user_bookings_path(current_user,date: @date,cost: 
+  @cost, schedule_id: @schedule), local: true, method: :post , :html => {class: "form-horizontal", role: "form"} do |form| %>
+
+  <div>
+    <h4>DEPARTURE : </h4>
+    <div class="booking_details">
+      <div class="inline">
+        <%= image_tag(get_schedule_flight_image(@schedule), size: "32") %>
+      </div>
+      <div class="inline">
+        <%= get_airline_name(@flight)%>
+        <br>
+        <%= get_schedule_flight_detail(@schedule).number %>
+      </div>
+      <div class="inline">
+        <%= get_schedule_detail(@schedule).depart_time.strftime("%H:%M")%>
+        <br>
+        <%= get_flight_detail(@flight).source %>
+      </div>
+      <div class="inline">
+        <%= image_tag("/assets/wayto.png", size: "32", id: "wayto") %>
+      </div>
+      <div class="inline">
+        <%= get_schedule_detail(@schedule).arrival_time.strftime("%H:%M") %>
+        <br>
+        <%= get_flight_detail(@flight).destinition %>
+      </div>
+      <div class="inline">
+        <%= get_differnce_between_depart_time_and_arrival_time(@schedule) %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    <h4>FARE SUMMARY :</h4>
+        <span class="bold">Total Fare Charged : </span><span class="cost bold"><%= "₹ "+ @cost.to_s %></span>
+  </div>
+  <div class="form-group">
+    <%= form.submit "CONTINUE", class: "btn form-control btn-primary", id: "booking_btn" %>
+  </div>
+  <% end %>
+</div>
