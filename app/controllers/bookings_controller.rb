@@ -1,16 +1,16 @@
 class BookingsController < ApplicationController
-  
+  include ApplicationHelper  
   def new
     @booking = Booking.new
     @user_id = params[:user_id]
-    @schedule = params[:schedule]
+    @schedule = Schedule.find(params[:schedule])
     @cost = params[:cost]
-    @flight = params[:flight]
+    @flight = Flight.find(params[:flight])
     @date = params[:date]
   end
   
   def index
-    @booking = Booking.where(user_id: params[:user_id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
+    @booking = Booking.where(user_id: params[:user_id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
   end
   
   def create
@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
     if params[:id].present?
       @booking = Booking.find(params[:id])
       if @booking.update(status: "canceled")
-        
       else
         flash[:danger] = "Your Flight has been booked"
         redirect_to user_bookings_path(current_user)
@@ -41,6 +40,18 @@ class BookingsController < ApplicationController
     else
       flash[:danger] = "Your Flight has been booked"
       redirect_to user_bookings_path(current_user)
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        send_data pdf, :filename => @booking.id.to_s+ ".pdf",
+               :type => "application/pdf",
+               :disposition => "attachment"
+      end
     end
   end
 

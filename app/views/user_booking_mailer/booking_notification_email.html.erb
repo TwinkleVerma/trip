@@ -1,0 +1,16 @@
+<h1>
+  Hello <%= @user_name %>
+</h1>
+<% if @booking_detail.status == 'canceled' %>
+  <p>
+    You have recently canceled a booked flight from <%= @source %>  to <%= @destinition %> for <%= @booking_detail.date %> on <%= @booking_detail.created_at %>.
+    <br>
+    <a href="http://localhost:3000/bookings/<%= @booking_detail.id %>">Click here to view canceled booking</a>
+  </p>
+<% else %>
+  <p>
+    You have recently booked flight from <%= @source %>  to <%= @destinition %> for <%= @booking_detail.date %> on <%= @booking_detail.created_at %>.
+    <br>
+    <a href="http://localhost:3000/bookings/<%= @booking_detail.id %>">Click here to view booking</a>
+  </p>
+<% end %>

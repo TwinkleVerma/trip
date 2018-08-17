@@ -14,6 +14,9 @@ gem 'pry'
 gem 'devise'
 gem 'city-state'
 gem 'will_paginate'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

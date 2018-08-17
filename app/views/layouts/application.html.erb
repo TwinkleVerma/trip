@@ -4,8 +4,7 @@
     <title>Trip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     <body>
@@ -14,6 +13,6 @@
         <%= render 'layouts/messages' %>
         <%= yield %>
       </div>
-      <h5 class="bottom text-center">Copyright©</h5>
+      <h5 class="bottom text-center eliminate_from_pdf">Copyright©</h5>
   </body>
 </html>

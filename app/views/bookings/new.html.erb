@@ -7,28 +7,28 @@
     <h4>DEPARTURE : </h4>
     <div class="booking_details">
       <div class="inline">
-        <%= image_tag(get_schedule_flight_image(@schedule), size: "32") %>
+        <%= image_tag(get_airline_logo(@flight), size: "32") %>
       </div>
       <div class="inline">
         <%= get_airline_name(@flight)%>
         <br>
-        <%= get_schedule_flight_detail(@schedule).number %>
+        <%= @flight.number %>
       </div>
       <div class="inline">
-        <%= get_schedule_detail(@schedule).depart_time.strftime("%H:%M")%>
+        <%= @schedule.depart_time.strftime("%H:%M")%>
         <br>
-        <%= get_flight_detail(@flight).source %>
+        <%= @flight.source %>
       </div>
       <div class="inline">
         <%= image_tag("/assets/wayto.png", size: "32", id: "wayto") %>
       </div>
       <div class="inline">
-        <%= get_schedule_detail(@schedule).arrival_time.strftime("%H:%M") %>
+        <%= @schedule.arrival_time.strftime("%H:%M") %>
         <br>
-        <%= get_flight_detail(@flight).destinition %>
+        <%= @flight.destinition %>
       </div>
       <div class="inline">
-        <%= get_differnce_between_depart_time_and_arrival_time(@schedule) %>
+        <%= get_differnce_between_time(@schedule) %>
       </div>
     </div>
   </div>

@@ -99,24 +99,29 @@ module ItinerariesHelper
     # end
   end
 
-  def get_flight_detail(flight)
-    Flight.find(flight)
+  def get_schedule_detail(booking)
+    booking.schedule
   end
 
-  def get_schedule_detail(schedule)
-    Schedule.find(schedule)
-  end
-  def get_schedule_flight_detail(schedule)
-    Schedule.find(schedule).flight
+  def get_schedule_flight_airline_name(booking)
+    booking.schedule.flight.airline.name
   end
 
-  def get_schedule_flight_image(schedule)
-    schedule = Schedule.find(schedule)
-    get_airline_logo(schedule.flight)
+  def get_schedule_flight_image(booking)
+    get_airline_logo(booking.schedule.flight)
   end
 
-  def get_differnce_between_depart_time_and_arrival_time(schedule)
-    schedule = get_schedule_detail(schedule)
+  def get_differnce_between_depart_time_and_arrival_time(booking)
+    schedule = get_schedule_detail(booking)
+    seconds_diff = (schedule.depart_time - schedule.arrival_time).to_i.abs
+    hours = seconds_diff / 3600
+    seconds_diff -= hours * 3600
+    minutes = seconds_diff / 60
+    seconds_diff -= minutes * 60
+    "#{hours.to_s.rjust(2, '0')}h#{minutes.to_s.rjust(2, '0')}m"
+  end
+
+  def get_differnce_between_time(schedule)
     seconds_diff = (schedule.depart_time - schedule.arrival_time).to_i.abs
     hours = seconds_diff / 3600
     seconds_diff -= hours * 3600
@@ -126,10 +131,7 @@ module ItinerariesHelper
   end
 
   def get_airline_name(flight)
-    flight = Flight.find(flight)
     flight.airline.name
   end
+
 end
-
-
-

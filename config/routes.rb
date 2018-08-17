@@ -25,9 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :schedules do
-    resource :bookings, only: [:create], on: :member
-  end
+  resources :schedules
+  
   resources :itineraries, only: :index
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

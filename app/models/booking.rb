@@ -6,4 +6,18 @@ class Booking < ApplicationRecord
   validates :cost, presence: true, numericality: { only_integer: true }
   validates :schedule_id, presence: true
   validates :user_id, presence: true
+
+
+  after_save :send_mail
+
+  def get_flight
+    schedule.flight
+  end
+
+  private
+
+  def send_mail
+    UserBookingMailer.booking_notification_email(self).deliver_now
+  end
+
 end
