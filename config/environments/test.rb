@@ -6,7 +6,7 @@ Rails.application.configure do
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
-  config.secret_key = Rails.application.credentials.secret_key_base
+  config.secret_key = 'ac16d7eb384a1eb777c40c4673996053183bd5e8656e8f620734ae874c0aef4e62eb9ece18e32a087c71b023d5a3dd3b3f6b96c90d5c8a3071b87fdf7727946b'
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
