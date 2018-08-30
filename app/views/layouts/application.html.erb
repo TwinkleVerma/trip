@@ -12,6 +12,9 @@
       <div class="container-fluid bg">
         <%= render 'layouts/messages' %>
         <%= yield %>
+        <div class="load">
+          <%= render 'bookings/loader' %>
+        </div>
       </div>
       <h5 class="bottom text-center eliminate_from_pdf">Copyright©</h5>
   </body>

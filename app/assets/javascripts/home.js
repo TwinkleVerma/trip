@@ -166,7 +166,7 @@ $(document).on('turbolinks:load', function() {
     	}
 
     	if(element.attr("type") == "date"){
-    		element.after(error);	
+    		element.after(error);
    		}
 
    	}

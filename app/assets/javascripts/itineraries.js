@@ -56,8 +56,9 @@ $(document).on('turbolinks:load', function() {
   });
 
   function ajax_call(data){
+    $('.loader').removeClass("hide");
     $.ajax({
-      url : '/itineraries', 
+      url : '/itineraries',
       type: 'GET',
       dataType: 'script',
       data: {
@@ -66,9 +67,15 @@ $(document).on('turbolinks:load', function() {
         date: date,
         airline_time: airline_time,
         airline_name: airline_name,
-        time_duration: time_duration, 
+        time_duration: time_duration,
         price_range: price_range
-      }
+      },
+      complete: hideLoadingImage
     });
   }
+
+  function hideLoadingImage() {
+    $('.loader').addClass("hide");
+  }
+
 });

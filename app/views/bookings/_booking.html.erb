@@ -49,7 +49,7 @@
           <% end %>
           <% if booking.status == 'confirmed' && current_user.present? %>
             <th colspan="2">
-            <%= link_to "CANCEL BOOKING", 'javascript:void(0)',booking_id: booking.id, class: 'btn btn-xs btn-danger cbtn cancel_booking_button', id: 'cancel_button'+booking.id.to_s %>
+            <%= link_to "CANCEL BOOKING", 'javascript:void(0)', booking_id: booking.id, class: 'btn btn-xs btn-danger cbtn cancel_booking_button', id: 'cancel_button'+booking.id.to_s %>
             </th>
           <% end%>
         </tr>

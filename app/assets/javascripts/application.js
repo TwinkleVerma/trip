@@ -16,3 +16,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.onreadystatechange = function () {
+  if (document.readyState == 'interactive'){
+    $('.loader').removeClass("hide");
+    console.log("interactive");
+  }
+  if (document.readyState == 'complete'){
+    $('.loader').addClass("hide");
+    console.log("complete");
+  }
+}
