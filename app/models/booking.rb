@@ -22,7 +22,7 @@ class Booking < ApplicationRecord
   private
 
   def send_mail
-    BookingConfirmationMailerJob.perform_now self
+    UserBookingMailer.booking_notification_email(self).deliver_now
   end
 
 end

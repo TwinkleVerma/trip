@@ -8,6 +8,6 @@ class ItinerariesController < ApplicationController
     @destinition = params[:destinition].downcase
     @date = params[:date]
     @day = @date.to_date.strftime("%A").downcase
-    @itineraries = filter_filghts 
+    @itineraries = filter_filghts
   end
 end

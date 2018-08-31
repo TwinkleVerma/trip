@@ -11,17 +11,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     if (User.where(:email => user_registration_paramns[:email]).exists?)
-      flash[:danger] = "Can't sign up, Email Exist!"      
+      flash[:danger] = "Can't sign up, Email Exist!"
       redirect_to root_path
     else
-      @user = User.new({:name => user_registration_paramns[:name], :email => user_registration_paramns[:email], :password => user_registration_paramns[:password]})
+      @user = User.new({name: user_registration_paramns[:name], email: user_registration_paramns[:email], password: user_registration_paramns[:password]})
       if @user.save
         flash[:success] = "Sign up successfully"
         redirect_to root_path
       else
-        flash[:danger] = "Can't sign up"      
+        flash[:danger] = "Can't sign up"
         redirect_to root_path
-      end    
+      end
     end
   end
 
@@ -40,8 +40,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           flash[:success] = "User profile successfully updated"
           redirect_to root_path
         else
-          flash[:danger] = "Can't update profile"      
-          redirect_to edit_user_registration_path  
+          flash[:danger] = "Can't update profile"
+          redirect_to edit_user_registration_path
         end
       else
         flash[:danger] = "Can't update profile"

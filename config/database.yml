@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: trip_development
+  database: trip_dev
   username: 'postgres'
   password: 'ubox81'
   host: localhost
@@ -91,4 +91,9 @@ test:
 production:
   <<: *default
   database: trip_production
-  password: <%= ENV['TRIP_DATABASE_PASSWORD'] %>
+  username: 'postgres'
+  password: 'ubox81'
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  encoding: UTF8

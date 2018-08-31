@@ -35,10 +35,10 @@ module ItinerariesHelper
   def get_all_cities
     cities = []
     CS.states(:in).each do |key, value|
-      CS.cities(key, :in).each do |city|  
+      CS.cities(key, :in).each do |city|
         cities << city
-      end  
-    end 
+      end
+    end
     cities
   end
 
@@ -60,7 +60,7 @@ module ItinerariesHelper
         end
       end
       selected_flight.flatten
-    end  
+    end
 
 
   def filter_filghts
