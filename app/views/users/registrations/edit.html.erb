@@ -24,7 +24,7 @@
         <%= f.fields_for :user_image_attributes do |ff| %>
             <%= ff.label :Profile_Image  %>
             <%= ff.file_field :picture, accept: 'image/jpeg, image/gif, image/png', class: "form-control" , id: "picture", autocomplete: "avatar", placeholder: "Profile Image"%>
-        <% end %>    
+        <% end %>
       </div>
       <div class="form-group">
         <%= f.label :current_password %>

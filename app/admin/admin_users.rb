@@ -28,19 +28,33 @@ ActiveAdmin.register AdminUser do
 end
 
 ActiveAdmin.register Airline do
-
+  permit_params :name, image_attributes: [:avatar]
   config.per_page = 10
 
+  form do |f|
+    f.inputs  do
+      f.input :name
+
+      f.object.build_image unless f.object.image
+
+      f.semantic_fields_for :image do |l|
+        l.input :avatar
+      end
+
+    end
+    f.actions
+  end
 end
 
 ActiveAdmin.register User do
-
+  permit_params :name, :contact, :password, :email
   config.per_page = 10
 
 end
+
 
 ActiveAdmin.register Booking do
 
   config.per_page = 10
-  
+
 end

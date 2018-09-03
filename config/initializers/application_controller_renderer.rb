@@ -6,3 +6,4 @@
 #     https: false
 #   )
 # end
+Rails.application.config.site_title = "Trip"

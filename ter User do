@@ -1,0 +1,285 @@
+=> [32m#<ActiveAdmin::Resource:0x00565220e4be20[0m
+ @action_items[32m=[0m
+  [[32m#<ActiveAdmin::ActionItem:0x00565220e4b8a8[0m
+    @block[32m=[0m[32m#<Proc:0x00565220e4b920@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:65>[0m,
+    @name[32m=[0m[33m:new[0m,
+    @options[32m=[0m{[33m:only[0m=>[[33m:index[0m]}[32m>[0m,
+   [32m#<ActiveAdmin::ActionItem:0x00565220e4b718[0m
+    @block[32m=[0m[32m#<Proc:0x00565220e4b790@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:75>[0m,
+    @name[32m=[0m[33m:edit[0m,
+    @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m,
+   [32m#<ActiveAdmin::ActionItem:0x00565220e4b560[0m
+    @block[32m=[0m[32m#<Proc:0x00565220e4b5b0@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:85>[0m,
+    @name[32m=[0m[33m:destroy[0m,
+    @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m],
+ @batch_actions[32m=[0m
+  {[33m:destroy[0m=>
+    [32m#<ActiveAdmin::BatchAction:0x00565220e4a908[0m
+     @block[32m=[0m
+      [32m#<Proc:0x00565220e4a930@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m,
+     @confirm[32m=[0m
+      [32m#<Proc:0x00565220e4a9f8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+     @options[32m=[0m
+      {[33m:priority[0m=>[1;34m100[0m,
+       [33m:confirm[0m=>
+        [32m#<Proc:0x00565220e4a9f8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+       [33m:if[0m=>
+        [32m#<Proc:0x00565220e4a9d0@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:61>[0m},
+     @sym[32m=[0m[33m:destroy[0m,
+     @title[32m=[0m
+      [32m#<Proc:0x00565220e4a980@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m[32m>[0m},
+ @collection_actions[32m=[0m[],
+ @controller[32m=[0m[1;34;4mAdmin[0m::[1;34;4mUsersController[0m,
+ @dsl[32m=[0m[32m#<ActiveAdmin::ResourceDSL:0x00565220d9d7a8[0m @config[32m=[0m[32m#<ActiveAdmin::Resource:0x00565220e4be20[0m ...[32m>[0m[32m>[0m,
+ @max_per_page[32m=[0m[1;34m10000[0m,
+ @member_actions[32m=[0m[],
+ @namespace[32m=[0m
+  [32m#<ActiveAdmin::Namespace:0x00565221507d90[0m
+   @application[32m=[0m
+    [32m#<ActiveAdmin::Application:0x0056521f835190[0m
+     @authentication_method[32m=[0m[33m:authenticate_admin_user![0m,
+     @batch_actions[32m=[0m[1;36mtrue[0m,
+     @current_user_method[32m=[0m[33m:current_admin_user[0m,
+     @javascripts[32m=[0m[32m#<Set: {[0m[31m[1;31m"[0m[31mactive_admin.js[1;31m"[0m[31m[0m}>,
+     @localize_format[32m=[0m[33m:long[0m,
+     @logout_link_path[32m=[0m[33m:destroy_admin_user_session_path[0m,
+     @namespaces[32m=[0m[32m#<ActiveAdmin::Namespace::Store:0x0056521f835168[0m @namespaces[32m=[0m{[33m:admin[0m=>[32m#<ActiveAdmin::Namespace:0x00565221507d90[0m ...[32m>[0m}[32m>[0m,
+     @site_title[32m=[0m[31m[1;31m"[0m[31mTrip[1;31m"[0m[31m[0m,
+     @stylesheets[32m=[0m{[31m[1;31m"[0m[31mactive_admin.css[1;31m"[0m[31m[0m=>{[33m:media[0m=>[31m[1;31m"[0m[31mscreen[1;31m"[0m[31m[0m}, [31m[1;31m"[0m[31mactive_admin/print.css[1;31m"[0m[31m[0m=>{[33m:media[0m=>[31m[1;31m"[0m[31mprint[1;31m"[0m[31m[0m}}[32m>[0m,
+   @menus[32m=[0m
+    [32m#<ActiveAdmin::MenuCollection:0x00565221505ea0[0m
+     @build_callbacks[32m=[0m[[32m#<Proc:0x00565221505e00@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/namespace.rb:167>[0m],
+     @built[32m=[0m[1;36mfalse[0m,
+     @menus[32m=[0m{}[32m>[0m,
+   @name[32m=[0m[31m[1;31m"[0m[31madmin[1;31m"[0m[31m[0m,
+   @resources[32m=[0m
+    [32m#<ActiveAdmin::ResourceCollection:0x00565221507d18[0m
+     @collection[32m=[0m
+      {[32m#<ActiveAdmin::Resource::Name:0x0056522109c008[0m
+        @collection[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+        @element[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+        @human[32m=[0m[31m[1;31m"[0m[31mAdmin user[1;31m"[0m[31m[0m,
+        @i18n_key[32m=[0m[33m:admin_user[0m,
+        @klass[32m=[0m[1;34;4mAdminUser[0m (call [31m[1;31m'[0m[31mAdminUser.connection[1;31m'[0m[31m[0m to establish a connection),
+        @name[32m=[0m[31m[1;31m"[0m[31mAdminUser[1;31m"[0m[31m[0m,
+        @param_key[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+        @plural[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+        @route_key[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+        @singular[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+        @singular_route_key[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m[32m>[0m=>
+        [32m#<ActiveAdmin::Resource:0x00565221505c70[0m
+         @action_items[32m=[0m
+          [[32m#<ActiveAdmin::ActionItem:0x00565221505810[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565221505888@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:65>[0m,
+            @name[32m=[0m[33m:new[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:index[0m]}[32m>[0m,
+           [32m#<ActiveAdmin::ActionItem:0x00565221505608[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565221505630@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:75>[0m,
+            @name[32m=[0m[33m:edit[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m,
+           [32m#<ActiveAdmin::ActionItem:0x005652215054f0[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565221505518@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:85>[0m,
+            @name[32m=[0m[33m:destroy[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m],
+         @batch_actions[32m=[0m
+          {[33m:destroy[0m=>
+            [32m#<ActiveAdmin::BatchAction:0x0056522109c198[0m
+             @block[32m=[0m
+              [32m#<Proc:0x0056522109c1c0@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m,
+             @confirm[32m=[0m
+              [32m#<Proc:0x0056522109c288@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+             @options[32m=[0m
+              {[33m:priority[0m=>[1;34m100[0m,
+               [33m:confirm[0m=>
+                [32m#<Proc:0x0056522109c288@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+               [33m:if[0m=>
+                [32m#<Proc:0x0056522109c260@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:61>[0m},
+             @sym[32m=[0m[33m:destroy[0m,
+             @title[32m=[0m
+              [32m#<Proc:0x0056522109c210@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m[32m>[0m},
+         @collection_actions[32m=[0m[],
+         @controller[32m=[0m[1;34;4mAdmin[0m::[1;34;4mAdminUsersController[0m,
+         @default_index[32m=[0m[1;34;4mActiveAdmin[0m::[1;34;4mViews[0m::[1;34;4mIndexAsTable[0m,
+         @dsl[32m=[0m[32m#<ActiveAdmin::ResourceDSL:0x00565220ff1bf8[0m @config[32m=[0m[32m#<ActiveAdmin::Resource:0x00565221505c70[0m ...[32m>[0m[32m>[0m,
+         @filters[32m=[0m{[33m:email[0m=>{}, [33m:current_sign_in_at[0m=>{}, [33m:sign_in_count[0m=>{}, [33m:created_at[0m=>{}},
+         @max_per_page[32m=[0m[1;34m10000[0m,
+         @member_actions[32m=[0m[],
+         @namespace[32m=[0m[32m#<ActiveAdmin::Namespace:0x00565221507d90[0m ...[32m>[0m,
+         @options[32m=[0m{},
+         @page_presenters[32m=[0m
+          {[33m:index[0m=>
+            {[33m:table[0m=>
+              [32m#<ActiveAdmin::PagePresenter:0x00565220fe5b50[0m
+               @block[32m=[0m[32m#<Proc:0x00565220ff18d8@/home/ubox81/trip/app/admin/admin_users.rb:4>[0m,
+               @options[32m=[0m{[33m:as[0m=>[33m:table[0m}[32m>[0m},
+           [33m:form[0m=>
+            [32m#<ActiveAdmin::PagePresenter:0x00565220fe4ea8[0m
+             @block[32m=[0m[32m#<Proc:0x00565220fe4ef8@/home/ubox81/trip/app/admin/admin_users.rb:19>[0m,
+             @options[32m=[0m{}[32m>[0m},
+         @paginate[32m=[0m[1;36mtrue[0m,
+         @per_page[32m=[0m[1;34m30[0m,
+         @resource_class_name[32m=[0m[31m[1;31m"[0m[31m::AdminUser[1;31m"[0m[31m[0m,
+         @resource_name[32m=[0m
+          [32m#<ActiveAdmin::Resource::Name:0x0056522109c008[0m
+           @collection[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+           @element[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+           @human[32m=[0m[31m[1;31m"[0m[31mAdmin user[1;31m"[0m[31m[0m,
+           @i18n_key[32m=[0m[33m:admin_user[0m,
+           @klass[32m=[0m[1;34;4mAdminUser[0m (call [31m[1;31m'[0m[31mAdminUser.connection[1;31m'[0m[31m[0m to establish a connection),
+           @name[32m=[0m[31m[1;31m"[0m[31mAdminUser[1;31m"[0m[31m[0m,
+           @param_key[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+           @plural[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+           @route_key[32m=[0m[31m[1;31m"[0m[31madmin_users[1;31m"[0m[31m[0m,
+           @singular[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m,
+           @singular_route_key[32m=[0m[31m[1;31m"[0m[31madmin_user[1;31m"[0m[31m[0m[32m>[0m,
+         @sidebar_sections[32m=[0m
+          [[32m#<ActiveAdmin::SidebarSection:0x00565221505220[0m
+            @block[32m=[0m
+             [32m#<Proc:0x005652215051f8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143>[0m,
+            @name[32m=[0m[31m[1;31m"[0m[31mfilters[1;31m"[0m[31m[0m,
+            @options[32m=[0m
+             {[33m:only[0m=>[[33m:index[0m],
+              [33m:if[0m=>
+               [32m#<Proc:0x00565221505270@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143 (lambda)>[0m}[32m>[0m,
+           [32m#<ActiveAdmin::Filters::ActiveSidebar:0x00565221505130[0m
+            @block[32m=[0m[1;36mnil[0m,
+            @name[32m=[0m[31m[1;31m"[0m[31mSearch status:[1;31m"[0m[31m[0m,
+            @options[32m=[0m
+             {[33m:only[0m=>[[33m:index[0m],
+              [33m:if[0m=>
+               [32m#<Proc:0x0056522109c378@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/active_sidebar.rb:45 (lambda)>[0m}[32m>[0m],
+         @sort_order[32m=[0m[1;36mnil[0m[32m>[0m,
+       [32m#<ActiveAdmin::Resource::Name:0x00565220f83158[0m
+        @collection[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+        @element[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+        @human[32m=[0m[31m[1;31m"[0m[31mAirline[1;31m"[0m[31m[0m,
+        @i18n_key[32m=[0m[33m:airline[0m,
+        @klass[32m=[0m[1;34;4mAirline[0m (call [31m[1;31m'[0m[31mAirline.connection[1;31m'[0m[31m[0m to establish a connection),
+        @name[32m=[0m[31m[1;31m"[0m[31mAirline[1;31m"[0m[31m[0m,
+        @param_key[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+        @plural[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+        @route_key[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+        @singular[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+        @singular_route_key[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m[32m>[0m=>
+        [32m#<ActiveAdmin::Resource:0x00565220f88180[0m
+         @action_items[32m=[0m
+          [[32m#<ActiveAdmin::ActionItem:0x00565220f83ec8[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565220f83f18@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:65>[0m,
+            @name[32m=[0m[33m:new[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:index[0m]}[32m>[0m,
+           [32m#<ActiveAdmin::ActionItem:0x00565220f83dd8[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565220f83e00@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:75>[0m,
+            @name[32m=[0m[33m:edit[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m,
+           [32m#<ActiveAdmin::ActionItem:0x00565220f83ce8[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565220f83d10@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/resource/action_items.rb:85>[0m,
+            @name[32m=[0m[33m:destroy[0m,
+            @options[32m=[0m{[33m:only[0m=>[[33m:show[0m]}[32m>[0m],
+         @batch_actions[32m=[0m
+          {[33m:destroy[0m=>
+            [32m#<ActiveAdmin::BatchAction:0x00565220f832e8[0m
+             @block[32m=[0m
+              [32m#<Proc:0x00565220f83310@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m,
+             @confirm[32m=[0m
+              [32m#<Proc:0x00565220f83450@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+             @options[32m=[0m
+              {[33m:priority[0m=>[1;34m100[0m,
+               [33m:confirm[0m=>
+                [32m#<Proc:0x00565220f83450@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:60>[0m,
+               [33m:if[0m=>
+                [32m#<Proc:0x00565220f833d8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:61>[0m},
+             @sym[32m=[0m[33m:destroy[0m,
+             @title[32m=[0m
+              [32m#<Proc:0x00565220f83360@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/batch_actions/resource_extension.rb:64>[0m[32m>[0m},
+         @collection_actions[32m=[0m[],
+         @controller[32m=[0m[1;34;4mAdmin[0m::[1;34;4mAirlinesController[0m,
+         @dsl[32m=[0m[32m#<ActiveAdmin::ResourceDSL:0x00565220ed77b8[0m @config[32m=[0m[32m#<ActiveAdmin::Resource:0x00565220f88180[0m ...[32m>[0m[32m>[0m,
+         @max_per_page[32m=[0m[1;34m10000[0m,
+         @member_actions[32m=[0m[],
+         @namespace[32m=[0m[32m#<ActiveAdmin::Namespace:0x00565221507d90[0m ...[32m>[0m,
+         @options[32m=[0m{},
+         @paginate[32m=[0m[1;36mtrue[0m,
+         @per_page[32m=[0m[1;34m10[0m,
+         @resource_class_name[32m=[0m[31m[1;31m"[0m[31m::Airline[1;31m"[0m[31m[0m,
+         @resource_name[32m=[0m
+          [32m#<ActiveAdmin::Resource::Name:0x00565220f83158[0m
+           @collection[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+           @element[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+           @human[32m=[0m[31m[1;31m"[0m[31mAirline[1;31m"[0m[31m[0m,
+           @i18n_key[32m=[0m[33m:airline[0m,
+           @klass[32m=[0m[1;34;4mAirline[0m (call [31m[1;31m'[0m[31mAirline.connection[1;31m'[0m[31m[0m to establish a connection),
+           @name[32m=[0m[31m[1;31m"[0m[31mAirline[1;31m"[0m[31m[0m,
+           @param_key[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+           @plural[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+           @route_key[32m=[0m[31m[1;31m"[0m[31mairlines[1;31m"[0m[31m[0m,
+           @singular[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m,
+           @singular_route_key[32m=[0m[31m[1;31m"[0m[31mairline[1;31m"[0m[31m[0m[32m>[0m,
+         @sidebar_sections[32m=[0m
+          [[32m#<ActiveAdmin::SidebarSection:0x00565220f83a68[0m
+            @block[32m=[0m
+             [32m#<Proc:0x00565220f83a40@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143>[0m,
+            @name[32m=[0m[31m[1;31m"[0m[31mfilters[1;31m"[0m[31m[0m,
+            @options[32m=[0m
+             {[33m:only[0m=>[[33m:index[0m],
+              [33m:if[0m=>
+               [32m#<Proc:0x00565220f83ab8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143 (lambda)>[0m}[32m>[0m,
+           [32m#<ActiveAdmin::Filters::ActiveSidebar:0x00565220f839c8[0m
+            @block[32m=[0m[1;36mnil[0m,
+            @name[32m=[0m[31m[1;31m"[0m[31mSearch status:[1;31m"[0m[31m[0m,
+            @options[32m=[0m
+             {[33m:only[0m=>[[33m:index[0m],
+              [33m:if[0m=>
+               [32m#<Proc:0x00565220f83518@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/active_sidebar.rb:45 (lambda)>[0m}[32m>[0m],
+         @sort_order[32m=[0m[1;36mnil[0m[32m>[0m,
+       [32m#<ActiveAdmin::Resource::Name:0x00565220e4a7a0[0m
+        @collection[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+        @element[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+        @human[32m=[0m[31m[1;31m"[0m[31mUser[1;31m"[0m[31m[0m,
+        @i18n_key[32m=[0m[33m:user[0m,
+        @klass[32m=[0m[1;34;4mUser[0m (call [31m[1;31m'[0m[31mUser.connection[1;31m'[0m[31m[0m to establish a connection),
+        @name[32m=[0m[31m[1;31m"[0m[31mUser[1;31m"[0m[31m[0m,
+        @param_key[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+        @plural[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+        @route_key[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+        @singular[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+        @singular_route_key[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m[32m>[0m=>[32m#<ActiveAdmin::Resource:0x00565220e4be20[0m ...[32m>[0m}[32m>[0m[32m>[0m,
+ @options[32m=[0m{},
+ @paginate[32m=[0m[1;36mtrue[0m,
+ @per_page[32m=[0m[1;34m30[0m,
+ @resource_class_name[32m=[0m[31m[1;31m"[0m[31m::User[1;31m"[0m[31m[0m,
+ @resource_name[32m=[0m
+  [32m#<ActiveAdmin::Resource::Name:0x00565220e4a7a0[0m
+   @collection[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+   @element[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+   @human[32m=[0m[31m[1;31m"[0m[31mUser[1;31m"[0m[31m[0m,
+   @i18n_key[32m=[0m[33m:user[0m,
+   @klass[32m=[0m[1;34;4mUser[0m (call [31m[1;31m'[0m[31mUser.connection[1;31m'[0m[31m[0m to establish a connection),
+   @name[32m=[0m[31m[1;31m"[0m[31mUser[1;31m"[0m[31m[0m,
+   @param_key[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+   @plural[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+   @route_key[32m=[0m[31m[1;31m"[0m[31musers[1;31m"[0m[31m[0m,
+   @singular[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m,
+   @singular_route_key[32m=[0m[31m[1;31m"[0m[31muser[1;31m"[0m[31m[0m[32m>[0m,
+ @sidebar_sections[32m=[0m
+  [[32m#<ActiveAdmin::SidebarSection:0x00565220e4b150[0m
+    @block[32m=[0m
+     [32m#<Proc:0x00565220e4b128@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143>[0m,
+    @name[32m=[0m[31m[1;31m"[0m[31mfilters[1;31m"[0m[31m[0m,
+    @options[32m=[0m
+     {[33m:only[0m=>[[33m:index[0m],
+      [33m:if[0m=>
+       [32m#<Proc:0x00565220e4b218@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/resource_extension.rb:143 (lambda)>[0m}[32m>[0m,
+   [32m#<ActiveAdmin::Filters::ActiveSidebar:0x00565220e4b038[0m
+    @block[32m=[0m[1;36mnil[0m,
+    @name[32m=[0m[31m[1;31m"[0m[31mSearch status:[1;31m"[0m[31m[0m,
+    @options[32m=[0m
+     {[33m:only[0m=>[[33m:index[0m],
+      [33m:if[0m=>
+       [32m#<Proc:0x00565220e4aae8@/home/ubox81/.rvm/gems/ruby-2.4.1/gems/activeadmin-1.3.0/lib/active_admin/filters/active_sidebar.rb:45 (lambda)>[0m}[32m>[0m],
+ @sort_order[32m=[0m[1;36mnil[0m[32m>[0m

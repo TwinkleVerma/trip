@@ -1,2 +1,3 @@
 class AirlinesController < ApplicationController
+
 end
