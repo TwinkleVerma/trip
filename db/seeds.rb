@@ -9,4 +9,4 @@
 # AdminUser.create!(email: 'proadmin@yopmail.com', password: 'password', password_confirmation: 'password') if Rails.env.production?
 # AdminUser.create!(email: 'testadmin@yopmail.com', password: 'password', password_confirmation: 'password') if Rails.env.test?
 
-AdminUser.create!(email: 'tripadmin@yopmail.com', password: 'password', password_confirmation: 'password')
+  AdminUser.create!(email: 'tripadmin@yopmail.com', password: 'password', password_confirmation: 'password')
