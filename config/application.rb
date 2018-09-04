@@ -14,6 +14,7 @@ module Trip
     config.active_job.queue_adapter = :sidekiq
     config.assets.initialize_on_precompile = false
 
+    config.serve_static_assets = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
