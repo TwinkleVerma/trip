@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       @user = User.new({name: user_registration_paramns[:name], email: user_registration_paramns[:email], password: user_registration_paramns[:password]})
       if @user.save
-        flash[:success] = "Sign up successfully"
+        flash[:success] = "Sign up successfully, First confirm your email then sign in"
         redirect_to root_path
       else
         flash[:danger] = "Can't sign up"

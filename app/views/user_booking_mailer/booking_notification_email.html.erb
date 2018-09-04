@@ -5,12 +5,12 @@
   <p>
     You have recently canceled a booked flight from <%= @source %>  to <%= @destinition %> for <%= @booking_detail.date %> on <%= @booking_detail.created_at %>.
     <br>
-    <a href="http://<%= Rails.application.config.action_mailer.default_url_options[:host] %>:<%= Rails.application.config.action_mailer.default_url_options[:port] %>/bookings/<%= @booking_detail.id %>">Click here to view canceled booking</a>
+    <a href="https://<%= Rails.application.config.action_mailer.default_url_options[:host] %>:<%= Rails.application.config.action_mailer.default_url_options[:port] %>/bookings/<%= @booking_detail.id %>">Click here to view canceled booking</a>
   </p>
 <% else %>
   <p>
     You have recently booked flight from <%= @source %>  to <%= @destinition %> for <%= @booking_detail.date %> on <%= @booking_detail.created_at %>.
     <br>
-    <a href="http://<%= Rails.application.config.action_mailer.default_url_options[:host] %>:<%= Rails.application.config.action_mailer.default_url_options[:port] %>/bookings/<%= @booking_detail.id %>">Click here to view booking</a>
+    <a href="https://<%= Rails.application.config.action_mailer.default_url_options[:host] %>:<%= Rails.application.config.action_mailer.default_url_options[:port] %>/bookings/<%= @booking_detail.id %>">Click here to view booking</a>
   </p>
 <% end %>
