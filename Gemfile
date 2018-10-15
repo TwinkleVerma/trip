@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.1'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -12,6 +12,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'activeadmin'
 gem 'pry'
 gem 'devise'
+gem "rolify"
 gem 'city-state'
 gem 'sidekiq'
 gem 'will_paginate'

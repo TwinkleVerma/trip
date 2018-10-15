@@ -1,0 +1,83 @@
+<div class="left-tab tab container ">
+  <br>
+  <a href="javascript:void(0)" class="flight" name="flight-assigned">Flight<span class="fly hide"> >></span></a><br>
+  <a href="javascript:void(0)" class="flight" name="scheduled-itineraries">Schedules<span class="hide sch"> >></span></a>
+</div>
+
+<div class="right-tab tab bg-white">
+  <div class="flight-assigned hide">
+    <ul>
+      <% current_user.crews.each do |crew| %>
+      <li>
+        <a href="javascript:void(0)" class="airline" name="<%= crew.flight.airline.name %>"><%= crew.flight.airline.name %></a>
+        <div class="<%= crew.flight.airline.name %> hide" id="modal">
+          <ul>
+            <li><span>Flight Number: </span><%= crew.flight.number %></li>
+            <li><span>Source: </span><%= crew.flight.source.capitalize %></li>
+            <li><span>Destination: </span><%= crew.flight.destinition.capitalize %></li>
+            <ul><% crew.flight.schedules.each do |schedule| %>
+              <li><br></li>
+              <li><span>Day: </span><%= schedule.day.upcase %></li>
+              <li><span>Departure Time: </span><%= schedule.depart_time.strftime("%H:%M") %></li>
+              <li><span>Arrival Time: </span><%= schedule.arrival_time.strftime("%H:%M") %></li>
+            <% end%></ul>
+          </ul>
+        </div>
+      </li>
+      <%end%>
+    </ul>
+  </div>
+  <div class="scheduled-itineraries hide">
+    <table>
+      <tr>
+        <th>Flight</th>
+        <th>Date</th>
+        <th>Source</th>
+        <th>Destination</th>
+      </tr>
+      <% current_user.flights.each do |flight| %>
+        <% flight.schedules.each do |schedule| %>
+          <% schedule.bookings.select(:date,:status).distinct.each do |booking| %>
+            <% if(booking.date >= DateTime.now && booking.status == 'confirmed') %>
+              <tr>
+                <td class="text-primary"><%= flight.number %></td>
+                <td><%= booking.date %></td>
+                <td><%= flight.source.capitalize %></td>
+                <td><%= flight.destinition.capitalize %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('.flight').click(function(){
+    if (this.name == 'flight-assigned'){
+      $('.flight-assigned').removeClass('hide');
+      $('.fly').removeClass('hide');
+      $('.scheduled-itineraries').addClass('hide');
+      $('.sch').addClass('hide');
+    }
+    else{
+      if (this.name == 'scheduled-itineraries'){
+        $('.flight-assigned').addClass('hide');
+        $('.fly').addClass('hide');
+        $('.scheduled-itineraries').removeClass('hide');
+        $('.sch').removeClass('hide');
+      }
+    }
+  });
+
+  $('.airline').click(function(){
+    if ($('.'+this.name).attr('class').includes("hide")) {
+      $('.'+this.name).removeClass('hide');
+    }
+    else{
+      $('.'+this.name).addClass('hide');
+    }
+  });
+</script>

@@ -153,9 +153,11 @@ input.error{
 
 #right-div{
   width: 80%;
-  overflow-y: scroll;
   float: right;
   height: 90%;
+}
+#right-div .iti{
+  overflow-y: scroll;
 }
 
 #left-div{
@@ -293,3 +295,58 @@ table.booking_show_table tr th{
 
 }
 
+.left-tab{
+  height: 635px;
+  width:29%;
+  float:left;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.right-tab{
+  background-color: white;
+  border-radius: 2px;
+  height: 635px;
+  width:69%;
+  float:right;
+  overflow-y: scroll;
+  padding-left: 4%;
+}
+
+.scheduled-itineraries table tr th{
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.scheduled-itineraries table tr td{
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.tab a{
+  text-decoration: none;
+}
+
+.flight-assigned a{
+  font-size: 0.8em;
+}
+
+#modal{
+  background-color: #FCC38E;
+  border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+}
+
+#modal ul {
+  list-style: none;
+  font-size: 16px;
+}
+
+#modal ul li {
+  margin-left: -12%;
+}
+
+#modal ul li span{
+  font-weight: bold;
+}

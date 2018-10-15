@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in) do |user_params|
-      user_params.permit(:name, :email, :contact, user_image_attributes: [:picture])
+      user_params.permit(:name, :email, :contact, :password, user_image_attributes: [:picture])
     end
   end
 end

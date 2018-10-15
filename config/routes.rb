@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    confirmations: 'users/confirmations'
+    confirmations: 'users/confirmations',
+    passwords: 'users/passwords'
   }
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :users, only: :show do
+    resources :flights, only: :index
     resources :bookings, only: [:create, :index]
     resource :image, on: :member
   end
