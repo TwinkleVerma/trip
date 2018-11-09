@@ -1,6 +1,6 @@
 <div class="container-fluid booking jumbotron">
   <div class="text-right eliminate_from_pdf"><%= link_to "<<My Trip", user_bookings_path(current_user.id)%></div>
-    <p class="eliminate_from_pdf"><%= link_to "Print E-Ticket", booking_path(@booking, :format => "pdf") %></p>
+    <p class="eliminate_from_pdf"><%= link_to "Print E-Ticket", booking_path(@booking, format: "pdf") %></p>
   <div class="text-center bold">Trip</div>
     <div class="bookings">
       <table class="booking_show_table">
@@ -72,7 +72,7 @@
         <tr>
           <% if @booking.status == 'confirmed' %>
             <th colspan="2">
-            <%= link_to "CANCEL BOOKING", 'javascript:void(0)',booking_id: @booking.id, class: 'btn btn-xs btn-danger cshowbtn cancel_booking_button eliminate_from_pdf', 
+            <%= link_to "CANCEL BOOKING", 'javascript:void(0)',booking_id: @booking.id, class: 'btn btn-xs btn-danger cshowbtn cancel_booking_button eliminate_from_pdf',
             id: 'cancel_button'+@booking.id.to_s %>
             </th>
           <% end%>

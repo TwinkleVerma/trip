@@ -1,6 +1,20 @@
-<% if !current_user.present? %> 
+<% if !current_user.present? %>
 	<%= render 'home/trip_home' %>
 <% else%>
-  <h1 class="text-center">Search for Flights</h1>
-	<%= render 'itineraries/flightSearch' %>
+  <% if current_user.roles.present? %>
+    <% if current_user.has_role?(:piolet) %>
+      <h1>
+        <%= render 'home/pioletPanel' %>
+      </h1>
+    <% else %>
+      <% if current_user.has_role?(:airTrafficManager) %>
+      <h1>
+        <%= render 'home/airTrafficManagerPanel' %>
+      </h1>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h1 class="text-center">Search for Flights</h1>
+    <%= render 'itineraries/flightSearch' %>
+  <% end %>
 <% end %>

@@ -10,3 +10,5 @@
 # AdminUser.create!(email: 'testadmin@yopmail.com', password: 'password', password_confirmation: 'password') if Rails.env.test?
 
   AdminUser.create!(email: 'tripadmin@yopmail.com', password: 'password', password_confirmation: 'password')
+  Role.create!(name: 'piolet')
+  Role.create!(name: 'airTrafficManager')

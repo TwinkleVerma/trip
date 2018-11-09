@@ -1,0 +1,60 @@
+<input type="hidden" name="" value="<%= @user.id %>" id="user_id">
+<% @user.flights.each do |flight| %>
+  <div class="form-group">
+    <%= label_tag :flight, 'Flight' , class: "col-sm-2 control-label" %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <%= text_field_tag flight.airline.name, flight.airline.name, class: "form-control", readonly: 'readonly'%>
+    </div>
+    <div class="col-sm-2">
+      <%= text_field_tag flight.number, flight.number, class: "form-control", readonly: 'readonly'%>
+    </div>
+    <div class="col-sm-2">
+      <%= text_field_tag flight.source,flight.source, class: "form-control", readonly: 'readonly'%>
+    </div>
+    <div class="col-sm-2">
+      <%= text_field_tag flight.destinition, flight.destinition, class: "form-control", readonly: 'readonly'%>
+    </div>
+    <div class="col-sm-1">
+      <%= button_tag "Delete", class: 'btn btn-danger delete-user-flight', value: flight.id %>
+    </div>
+    <div class="schedule_div">
+      <% flight.schedules.each do |schedule| %>
+        <div class="row-lg">
+          <div class="col-sm-4">
+            <%= text_field_tag schedule.day, schedule.day, class: "form-control", readonly: 'readonly'%>
+          </div>
+          <div class="col-sm-4">
+            <%= text_field_tag schedule.depart_time, schedule.depart_time, class: "form-control", readonly: 'readonly'%>
+          </div>
+          <div class="col-sm-4">
+            <%= text_field_tag schedule.arrival_time, schedule.arrival_time, class: "form-control", readonly: 'readonly'%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $('.delete-user-flight').click(function(){
+    flight_id = $(this).val();
+    user_id = $('#user_id').val();
+    $.ajax({
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      url: '/users/'+user_id+'/crews',
+      type: 'DELETE',
+      dataType: 'script',
+      data: {
+        flight: flight_id
+      },
+      success: reload
+    });
+
+    function reload(){
+      location.reload();
+    }
+  });
+</script>

@@ -31,8 +31,12 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super(resource_name, resource)
   # end
   private
-  
+
   def after_confirmation_path_for(resource_name, resource)
-    root_path
+    # if resource.roles.present?
+    #   edit_user_password_path
+    # else
+      root_path
+    # end
   end
 end

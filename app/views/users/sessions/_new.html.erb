@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h2 class="text-center text-primary">Log in</h2>
   <div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: "form-inline login-form", role: "from"}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: "form-inline login-form", role: "from"}) do |f| %>
       <div class="form-group">
         <%= f.text_field :login, placeholder: "Login Id", class: "form-control", id: "login", autocomplete: "off"%>
       </div>

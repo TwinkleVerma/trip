@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @booking = Booking.where(user_id: params[:user_id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @booking = Booking.where(user_id: params[:user_id]).order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def create
@@ -48,9 +48,9 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        send_data pdf, :filename => @booking.id.to_s+ ".pdf",
-               :type => "application/pdf",
-               :disposition => "attachment"
+        send_data pdf, filename: @booking.id.to_s+ ".pdf",
+               type: "application/pdf",
+               disposition: "attachment"
       end
     end
   end

@@ -1,0 +1,36 @@
+<div class="container-fluid jumbotron">
+  <table>
+    <tbody>
+      <% @user.each do |user|%>
+      <tr>
+        <td><%= link_to user.name, "/users/"+user.id.to_s %></td>
+        <td><%= user.contact %></td>
+        <td><%= user.email %></td>
+        <% if user.avialable.nil? || user.avialable == 0 %>
+        <td><%= image_tag('/assets/red.svg', size: "16", id: "not_avialable") %>
+</td>
+        <% else %>
+        <td><%= image_tag('/assets/green.svg', size: "16", id: "avialable") %>
+</td>
+        <% end %>
+        <td><%= link_to "edit", edit_user_path(user.id) %></td>
+        <td><%= link_to 'call', 'javascript:void(0)' , class: :call, id: user.id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $('.call').click(function(){
+    user = this.id;
+    $('.loader').removeClass("hide");
+    $.ajax({
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      url : '/users/'+user+'/call',
+      type: 'POST',
+      dataType: 'script'
+    });
+  });
+</script>
+

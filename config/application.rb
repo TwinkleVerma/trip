@@ -10,7 +10,7 @@ module Trip
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    config.middleware.use PDFKit::Middleware, :print_media_type => true
+    config.middleware.use PDFKit::Middleware, print_media_type: true
     config.active_job.queue_adapter = :sidekiq
     config.assets.initialize_on_precompile = false
 

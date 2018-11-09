@@ -1,0 +1,18 @@
+<div>
+  <% @crew.each do |crew| %>
+    <div class="row">
+      <div class="col-lg-3">
+        <%= link_to crew.flight.number, user_crews_flights_path(flight: crew.flight.number)%>
+      </div>
+      <div class="col-lg-3">
+        <%= crew.flight.source %>
+      </div>
+      <div class="col-lg-3">
+        <%= crew.flight.destinition %>
+      </div>
+      <div class="col-lg-3">
+        <%= crew.flight.airline.name %>
+      </div>
+    </div>
+  <% end %>
+</div>

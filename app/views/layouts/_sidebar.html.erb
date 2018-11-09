@@ -1,0 +1,13 @@
+<div class="left-sidebar-tab">
+  <% if can? :create, Crew %>
+  <br>
+  <%= link_to 'Piolet', users_path, class: 'view_piolets' %>
+  <br>
+  <%= link_to 'Airline', airlines_path, class: 'view_flight' %>
+  <br>
+  <%= link_to 'Calendar', calendar_path, class: 'calendar' %>
+  <% else %>
+    <br>
+    <%= link_to 'Crew', user_crews_flights_path(current_user.id)%>
+  <% end %>
+</div>

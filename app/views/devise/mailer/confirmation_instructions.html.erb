@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome <%= @resource.name %>!</p>
 
+<p>Login Id : <%= @email %></p>
+<% if @resource.roles.present? %>
+  <p>password : "user@1234"</p>
+  <p>Your role is '<%= @resource.roles.last.name %>'</p>
+<% end %>
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', 'https://'+Rails.application.config.action_mailer.default_url_options[:host].to_s+':'+Rails.application.config.action_mailer.default_url_options[:port].to_s+confirmation_path(@resource, confirmation_token: @token).to_s %></p>
+<p><%= link_to 'Confirm my account', 'http://'+Rails.application.config.action_mailer.default_url_options[:host].to_s+':'+Rails.application.config.action_mailer.default_url_options[:port].to_s+confirmation_path(@resource, confirmation_token: @token).to_s %></p>

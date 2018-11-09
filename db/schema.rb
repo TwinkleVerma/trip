@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_112938) do
+ActiveRecord::Schema.define(version: 2018_11_05_112301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,23 @@ ActiveRecord::Schema.define(version: 2018_09_04_112938) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "crews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_crews_on_flight_id"
+    t.index ["user_id"], name: "index_crews_on_user_id"
+  end
+
+  create_table "disable_schedules", force: :cascade do |t|
+    t.date "date"
+    t.bigint "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_disable_schedules_on_schedule_id"
+  end
+
   create_table "flights", force: :cascade do |t|
     t.string "number"
     t.string "source"
@@ -81,6 +98,28 @@ ActiveRecord::Schema.define(version: 2018_09_04_112938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "callfrom"
+    t.integer "duration"
+    t.string "callSid"
+    t.string "status"
+    t.string "accountSid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_logs_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -114,14 +153,24 @@ ActiveRecord::Schema.define(version: 2018_09_04_112938) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.integer "avialable"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   add_foreign_key "bookings", "schedules"
   add_foreign_key "bookings", "users"
+  add_foreign_key "disable_schedules", "schedules"
   add_foreign_key "flights", "airlines"
   add_foreign_key "schedules", "flights"
 end

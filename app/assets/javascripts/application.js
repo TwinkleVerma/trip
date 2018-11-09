@@ -10,12 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require jquery
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require jquery_ujs
+//= require rails-ujs
+//= require_tree
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/gcal
 
 document.onreadystatechange = function () {
   if (document.readyState == 'interactive'){
@@ -27,3 +31,5 @@ document.onreadystatechange = function () {
     console.log("complete");
   }
 }
+
+

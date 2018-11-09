@@ -1,0 +1,18 @@
+<div>
+  <h2><center><%= @flight.number %></center></h2>
+  <div>
+    <% @schedule.each do |schedule| %>
+    <div class="row">
+      <div class="col-lg-4">
+        <%= schedule.day %>
+      </div>
+      <div class="col-lg-4">
+        <%= schedule.arrival_time %>
+      </div>
+      <div class="col-lg-4">
+        <%= schedule.depart_time %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
