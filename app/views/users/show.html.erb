@@ -4,6 +4,19 @@
     <%= image_tag(get_user_image(current_user), size: "100", class: "rounded-circle align-right") %>
     <p class="float-left">Email : <%= @user.email %></p>
     <p class="float-left">Contact : <%= @user.contact %></p>
-    <%= link_to "Edit", edit_user_registration_path%>
+    <% if current_user == @user %>
+      <%= link_to "Edit", edit_user_registration_path%>
+    <% else %>
+      <table>
+        <% @user.flights.each do |flight|%>
+        <tr>
+          <th><%= flight.airline.name %></th>
+          <td><%= flight.number %></td>
+          <td><%= flight.source %></td>
+          <td><%= flight.destinition %></td>
+        </tr>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </div>

@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if (User.where(:email => user_registration_paramns[:email]).exists?)
+    if (User.where(email: user_registration_paramns[:email]).exists?)
       flash[:danger] = "Can't sign up, Email Exist!"
       redirect_to root_path
     else
@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if @user.valid_password?(user_registration_paramns[:password])
-      if @user.update({:contact => user_registration_paramns[:contact]})
+      if @user.update({contact: user_registration_paramns[:contact]})
         image_params = {avatar: user_registration_paramns[:user_image_attributes][:picture]}
         image = @user.build_image(image_params)
         if image.save

@@ -11,6 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
+ /*
+ *= require fullcalendar
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -246,7 +249,6 @@ table.booking_show_table tr th{
 }
 
 .booking{
-  margin-top: 1%;
   height: 97%;
 }
 
@@ -295,22 +297,28 @@ table.booking_show_table tr th{
 
 }
 
-.left-tab{
-  height: 635px;
-  width:29%;
-  float:left;
+.left-sidebar-tab{
+  position: absolute;
+  margin-top: 4px;
+  height: 667px;
+  width: 17%;
+  padding-left: 2%;
+  font-size: 2em;
+  float: left;
   background-color: white;
   border-radius: 2px;
 }
 
 .right-tab{
-  background-color: white;
+  height: 665px;
   border-radius: 2px;
-  height: 635px;
-  width:69%;
+  width:83%;
   float:right;
-  overflow-y: scroll;
-  padding-left: 4%;
+  margin-top: 4px;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: white;
+  padding: 30px;
 }
 
 .scheduled-itineraries table tr th{
@@ -327,8 +335,9 @@ table.booking_show_table tr th{
   text-decoration: none;
 }
 
-.flight-assigned a{
-  font-size: 0.8em;
+.flight-assigned ul{
+  font-size: 1em;
+  padding-top: 5%;
 }
 
 #modal{
@@ -338,15 +347,37 @@ table.booking_show_table tr th{
   padding: 10px;
 }
 
-#modal ul {
+ul {
   list-style: none;
   font-size: 16px;
 }
 
-#modal ul li {
-  margin-left: -12%;
+ul li span{
+  font-weight: bold;
 }
 
-#modal ul li span{
-  font-weight: bold;
+.ttm-tab{
+  font-size: 0.6em;
+}
+
+.ttm-tab a{
+  padding-left: 3%;
+}
+.form-control{
+  margin-top: 10px;
+}
+label {
+  margin-top: 10px;
+}
+.btn-danger{
+  margin-top: 10px;
+}
+.closeon{
+  top: 2px;
+  right: 3px;
+  position: absolute;
+  cursor: pointer;
+}
+.fc-content{
+  width: 80%;
 }

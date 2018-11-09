@@ -12,11 +12,10 @@ module ItinerariesHelper
     hours = seconds_diff / 3600
     seconds_diff -= hours * 3600
     minutes = seconds_diff / 60
-    seconds_diff -= minutes * 60
     "#{hours.to_s.rjust(2, '0')}h#{minutes.to_s.rjust(2, '0')}m"
   end
 
-  def getFlightCost(flight)
+  def get_flight_cost(flight)
     cost = get_flights_schedules(flight)[0].base_cost.to_f
     days = (@date.to_date -  Time.now.to_date).to_i
     case days

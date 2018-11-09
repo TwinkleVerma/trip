@@ -1,0 +1,16 @@
+<% @airline.each do |airline| %>
+  <div class="row">
+    <div class="col-lg-4">
+      <p class="name"><%= link_to airline.name, airline_flights_path({airline_id: airline.id}) %></p>
+    </div>
+    <div class="col-lg-4">
+      <p><%= airline.flights.count %> Flights</p>
+    </div>
+  </div>
+<% end %>
+
+<style type="text/css">
+  div.row div.col-lg-4 p.name{
+    font-size: 1.4em;
+  }
+</style>

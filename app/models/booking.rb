@@ -1,14 +1,14 @@
 class Booking < ApplicationRecord
-  attribute :status, :string, default: "confirmed"
+  attribute :status, :string, default: 'confirmed'
 
-  enum status: {confirmed: "confirmed", canceled: "canceled"}
+  enum status: { confirmed: 'confirmed', canceled: 'canceled' }
 
   belongs_to :schedule
   belongs_to :user
 
   validates :date, presence: true
   validates :status, presence: true
-  validates :cost, presence: true, numericality: {only_integer: true}
+  validates :cost, presence: true, numericality: { only_integer: true }
   validates :schedule_id, presence: true
   validates :user_id, presence: true
 

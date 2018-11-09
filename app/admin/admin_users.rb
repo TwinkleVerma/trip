@@ -45,14 +45,17 @@ ActiveAdmin.register Airline do
 end
 
 ActiveAdmin.register User do
-  permit_params :name, :contact, :password, :email, :role_ids => []
+  permit_params :name, :contact, :password , :email, role_ids: [], flight_ids: []
   config.per_page = 10
   form do |f|
     f.inputs do
       f.input :name
       f.input :email
       f.input :password
-      f.input :roles,  :as => :select, :collection => Role.global
+      f.input :roles, as: :select, collection: Role.global
+    end
+    f.inputs 'crew' do
+        f.input :flight_ids, as: :select, collection: Flight.pluck(:id), multiple: true
     end
     f.actions
   end

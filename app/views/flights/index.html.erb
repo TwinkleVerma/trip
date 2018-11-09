@@ -1,0 +1,29 @@
+<div>
+  <% if params[:airline_id].present? %>
+    <div>
+      <h3><center><%= @airline.name %></center></h3>
+    </div>
+  <% end %>
+  <% if @flight.present? %>
+    <% @flight.each do |flight| %>
+      <div class="row">
+        <div class="col-lg-3">
+          <%= link_to flight.number, airline_flight_schedules_path({flight_id: flight.id})%>
+        </div>
+        <div class="col-lg-3">
+          <%= flight.source %>
+        </div>
+        <div class="col-lg-3">
+          <%= flight.destinition %>
+        </div>
+        <% if params[:airline_id].nil? %>
+          <div class="col-lg-3">
+            <%= link_to flight.airline.name, airline_flights_path({airline_id: flight.airline.id}) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <h4><i>No flights</i></h4>
+  <% end %>
+</div>

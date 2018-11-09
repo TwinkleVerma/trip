@@ -1,0 +1,58 @@
+<div id="calendar"></div>
+
+<div style="margin: 23px">
+  <% @airline.each do |airline| %>
+    <%
+      color = case airline.name
+        when 'indigo'
+          'red'
+        when 'jetairways'
+          'orange'
+        when 'spicejet'
+          'blue'
+        else
+          'darkslategray'
+      end
+    %>
+    <span class="fc-event-dot" style="background-color:<%= color %>; margin: 0px;"></span><span style="margin: 5px"><%= airline.name.capitalize %></span>
+  <% end %>
+  <span class="fc-event-dot" style="background-color:'darkslategray';  margin: 0px;"></span><span style="margin: 5px;">Other</span>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#calendar').fullCalendar({
+      defaultView: 'month',
+      header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      events: '/event.json',
+      dayRender: function (date, cell) {
+        var today = new Date();
+        if (date.valueOf() < today.valueOf()) {
+          if (date._d.getDate() != today.getDate() || date._d.getMonth() != today.getMonth() || date._d.getFullYear() != today.getFullYear())
+          {
+            cell.css("background-color","lightgray");
+          }
+        }
+      },
+      eventRender: function(event, element) {
+        element.append( "<i class='fa fa-trash closeon' value=''></i>" );
+        element.find(".closeon").click(function() {
+          schedule_id = event.description
+          $.ajax({
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            url : '/schedules/'+schedule_id+'/disable_schedules',
+            type: 'POST',
+            data: {
+              date: event.end._pf.parsedDateParts[0]+"/"+(event.end._pf.parsedDateParts[1]+1)+"/"+event.end._pf.parsedDateParts[2]
+            }
+          });
+        });
+      }
+    })
+});
+
+</script>

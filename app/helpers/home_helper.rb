@@ -3,7 +3,7 @@ module HomeHelper
     if user.present? && user.image.present? && user.image.avatar_url.present?
       user.image.avatar_url
     else
-      "/assets/user_logo.png"
+      '/assets/user_logo.png'
     end
   end
 end

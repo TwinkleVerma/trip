@@ -1,0 +1,19 @@
+<div class="containor-fluid booking  jumbotron">
+  <<a href="/">Back </a>
+  <h2 class="text-center text-primary"><%= @airline.name %></h2>
+  <div>
+    <% @flights.each do | flight | %>
+      <ul>
+        <li><span>Flight Number: </span><%= flight.number %></li>
+        <li><span>Source: </span><%= flight.source.capitalize %></li>
+        <li><span>Destination: </span><%= flight.destinition.capitalize %></li>
+        <ul><% flight.schedules.each do |schedule| %>
+          <li><br></li>
+          <li><span>Day: </span><%= schedule.day.upcase %></li>
+          <li><span>Departure Time: </span><%= schedule.depart_time.strftime("%H:%M") %></li>
+          <li><span>Arrival Time: </span><%= schedule.arrival_time.strftime("%H:%M") %></li>
+        <% end%></ul>
+      </ul>
+    <% end %>
+  </div>
+</div>

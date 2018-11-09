@@ -1,0 +1,72 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Airline</h4>
+</div>
+<div class="modal-body">
+  <% @airline.each do |airline| %>
+    <div class="row">
+      <%= link_to airline.name, 'javascript:void(0)', id: airline.id %>
+      <ul class="ul<%=airline.id%> hide">
+        <li>
+          <% if !airline.flights.present? %>
+            <i>no flights</i>
+          <% end %>
+        </li>
+        <% airline.flights.each do |flight| %>
+          <li>
+            <% status = false %>
+            <% id = flight.id %>
+            <%= flight.number %>
+            <% @user.flights.each do |user_flight| %>
+              <% if user_flight == flight %>
+                <% status = true %>
+              <% end %>
+            <% end %>
+            <%= check_box_tag id, id, status, class: 'flight' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary done-btn">Done</button>
+</div>
+
+
+<style type="text/css">
+  a{
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/javascript">
+  $('a').click(function(){
+    value = this.id
+    cls = "ul"+value;
+    $('.'+cls).removeClass('hide');
+  });
+
+  $(".flight").change(function() {
+    var ischecked= $(this).is(':checked');
+    type = 'DELETE'
+    flight_id = $(this).val();
+    user_id = $('#user_id').val();
+    if(ischecked){
+      type = 'POST'
+    }
+    $.ajax({
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      url: '/users/'+user_id+'/crews',
+      type: type,
+      dataType: 'script',
+      data: {
+        flight: flight_id
+      }
+    });
+  });
+
+  $('.done-btn').click(function(){
+    location.reload();
+  });
+</script>

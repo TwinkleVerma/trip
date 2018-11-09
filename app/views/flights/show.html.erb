@@ -1,0 +1,30 @@
+<div>
+  <% if params[:on].nil? %>
+    <% i = 4 %>
+    <% user = nil %>
+    <div class="row">
+      <h2><center><%= @airline.name %></center></h2>
+    </div>
+  <% else %>
+    <% i = 3%>
+    <% user = current_user.id %>
+  <% end %>
+  <% @flight.each do |flight| %>
+    <div class="row">
+      <div class="col-lg-<%=i%>">
+        <%= link_to flight.number, flight_schedules_path({flight_id: flight.id, user: user})%>
+      </div>
+      <div class="col-lg-<%=i%>">
+        <%= flight.source %>
+      </div>
+      <div class="col-lg-<%=i%>">
+        <%= flight.destinition %>
+      </div>
+      <% if params[:on].present? %>
+        <div class="col-lg-<%=i%>">
+          <%= link_to flight.airline.name, airline_flights_path({airline_id: flight.airline.id}) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

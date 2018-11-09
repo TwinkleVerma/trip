@@ -7,6 +7,8 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.perform_deliveries = true
   config.eager_load = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
