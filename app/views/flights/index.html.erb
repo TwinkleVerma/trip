@@ -6,18 +6,18 @@
   <% end %>
   <% if @flight.present? %>
     <% @flight.each do |flight| %>
-      <div class="row">
-        <div class="col-lg-3">
-          <%= link_to flight.number, airline_flight_schedules_path({flight_id: flight.id})%>
+      <div class='row'>
+        <div class='col-lg-3'>
+          <%= link_to flight.number, airline_flight_schedules_path({airline_id: flight.airline.id, flight_id: flight.id})%>
         </div>
-        <div class="col-lg-3">
+        <div class='col-lg-3'>
           <%= flight.source %>
         </div>
-        <div class="col-lg-3">
+        <div class='col-lg-3'>
           <%= flight.destinition %>
         </div>
         <% if params[:airline_id].nil? %>
-          <div class="col-lg-3">
+          <div class='col-lg-3'>
             <%= link_to flight.airline.name, airline_flights_path({airline_id: flight.airline.id}) %>
           </div>
         <% end %>

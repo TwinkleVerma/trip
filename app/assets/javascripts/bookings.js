@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function() {
       id = $(this).attr("id");
       booking_id = $("#"+id).attr("booking_id");
       $.ajax({
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         url : '/bookings/'+booking_id,
         type: 'PATCH',
         complete: hideLoadingImage
@@ -22,6 +23,7 @@ $(document).on('turbolinks:load', function() {
     schedule = $('#schedule').val();
     user_id = $('#user_id').val();
     $.ajax({
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         url : '/users/'+user_id+'/bookings',
         type: 'POST',
         dataType: 'script',

@@ -91,7 +91,6 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    chronic (0.10.2)
     city-state (0.0.13)
       rubyzip (~> 1.1)
     coderay (1.1.2)
@@ -330,7 +329,6 @@ DEPENDENCIES
   capybara (>= 2.15, < 4.0)
   carrierwave
   chromedriver-helper
-  chronic
   city-state
   coffee-rails (~> 4.2)
   devise

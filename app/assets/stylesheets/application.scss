@@ -81,7 +81,7 @@ body, html {
 
 .inline{
   display: inline-block;
-  padding-left: 8%;
+  padding-left: 6%;
 }
 
 .inline-first{
@@ -378,6 +378,16 @@ label {
   position: absolute;
   cursor: pointer;
 }
+.info{
+  top: 2px;
+  right: 19px;
+  position: absolute;
+  cursor: pointer;
+}
 .fc-content{
   width: 80%;
+}
+
+.modal-header .close {
+  margin-top: -4%;
 }

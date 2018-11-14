@@ -1,5 +1,30 @@
 <div id="calendar"></div>
 
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <center><h4 class="modal-title"></h4></center>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p><b>Flight Number : </b><span id="flight_number"></span></p>
+        <p><b>Source : </b><span id="flight_source"></span></p>
+        <p><b>Destinition :</b><span id="flight_destinition"></span></p>
+        <p><b>Day : </b><span id="schedule_day"></span></p>
+        <p><b>Departure Time : </b><span id="schedule_depart_time"></span></p>
+        <p><b>Arrival Time : </b><span id="schedule_arrival_time"></span></p>
+        <p><b>Assignes Piolet : </b><span id="user"></span></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div style="margin: 23px">
   <% @airline.each do |airline| %>
     <%
@@ -22,7 +47,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('#calendar').fullCalendar({
-      defaultView: 'month',
+      defaultView: 'listWeek',
       header: {
           left: 'prev,next today',
           center: 'title',
@@ -39,20 +64,34 @@
         }
       },
       eventRender: function(event, element) {
-        element.append( "<i class='fa fa-trash closeon' value=''></i>" );
-        element.find(".closeon").click(function() {
-          schedule_id = event.description
-          $.ajax({
-            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-            url : '/schedules/'+schedule_id+'/disable_schedules',
-            type: 'POST',
-            data: {
-              date: event.end._pf.parsedDateParts[0]+"/"+(event.end._pf.parsedDateParts[1]+1)+"/"+event.end._pf.parsedDateParts[2]
+        var view = $('#calendar').fullCalendar('getView');
+        if (view.name != 'listWeek'){
+          element.append("<i class='fa fa-trash closeon' value=''></i><i value='' class= 'fa fa-info-circle info' data-toggle='modal' data-target='#myModal'></i>" );
+          element.find(".closeon").click(function() {
+            if (confirm("Are you sure, you want to delete the schedule?") ){
+              schedule_id = event.description
+              $.ajax({
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                url : '/schedules/'+schedule_id+'/disable_schedules',
+                type: 'POST',
+                data: {
+                  date: event.end._pf.parsedDateParts[0]+"/"+(event.end._pf.parsedDateParts[1]+1)+"/"+event.end._pf.parsedDateParts[2]
+                }
+              });
             }
           });
-        });
+          element.find(".info").click(function() {
+            $('.modal-title').html(event.data.flight_airline).css('color',event.color);
+            $('#flight_source').html(event.data.flight_source);
+            $('#flight_destinition').html(event.data.flight_destinition);
+            $('#flight_number').html(event.data.flight_number);
+            $('#schedule_day').html(event.data.schedule_day);
+            $('#schedule_depart_time').html(event.data.schedule_depart_time);
+            $('#schedule_arrival_time').html(event.data.schedule_arrival_time);
+            $('#user').html(event.data.user);
+          });
+        }
       }
     })
 });
-
 </script>

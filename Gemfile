@@ -1,61 +1,44 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.5.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
-gem 'chronic'
-# calendar
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
-# call/sms service
-gem 'twilio-ruby', '~> 5.15.1'
-# file upload
-gem 'carrierwave'
-gem 'rails-uploader'
-# db postgres
-gem 'pg', '>= 0.18', '< 2.0'
-# admin panel
-gem 'activeadmin'
-# debugging
-gem 'pry'
-# authentication of user
-gem 'devise'
-# give roles to user
-gem "rolify"
-# city and state name
-gem 'city-state'
-# background job
-gem 'sidekiq'
-# pagination
-gem 'will_paginate'
-# pdf create
-gem 'pdfkit'
-gem 'wkhtmltopdf-binary'
-gem 'wicked_pdf'
-gem "autoprefixer-rails"
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.7'
-gem 'jquery-rails'
-gem 'sass-rails', '~> 5.0'
-# ruby standard
-gem 'rubocop'
-# authorization (accessibility)
-gem 'cancan'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'activeadmin' # admin panel
+gem 'autoprefixer-rails' # pdf create
+gem 'bootstrap-sass', '~> 3.3.7' # Use SCSS for stylesheets
+gem 'cancan' # authorization (accessibility)
+gem 'carrierwave' # file upload
+gem 'city-state' # city and state name
+gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
+gem 'devise' # authentication of user
+gem 'fullcalendar-rails' # calendar
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails' # Use SCSS for stylesheets
+gem 'momentjs-rails' # calendar
+gem 'pdfkit' # pdf create
+gem 'pg', '>= 0.18', '< 2.0' # db postgres
+gem 'pry' # debugging
+gem 'puma', '~> 3.11' # Use Puma as the app server
+gem 'rails', '~> 5.2.0' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails-uploader' # file upload
+gem 'rolify' # give roles to user
+gem 'rubocop' # ruby standard
+gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'sidekiq' # background job
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+gem 'twilio-ruby', '~> 5.15.1' # call/sms service
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'wicked_pdf' # pdf create
+gem 'will_paginate' # pagination
+gem 'wkhtmltopdf-binary' # pdf create
+
+
+
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
