@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_user, only: [:show, :edit]
   protect_from_forgery prepend: true
   include UsersHelper
 
@@ -18,11 +19,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
+  protected
+
+  def find_user
+    @user = User.find(params[:id])
+  end
 end

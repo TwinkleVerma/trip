@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates_format_of :name, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
   validates :name, uniqueness: { case_sensitive: false }
 
+  scope :select_field, ->(field) {select(field)}
+
   attr_writer :login
   after_create :send_reset_password_mail
 

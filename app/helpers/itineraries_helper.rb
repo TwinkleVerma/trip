@@ -17,7 +17,7 @@ module ItinerariesHelper
 
   def get_flight_cost(flight)
     cost = get_flights_schedules(flight)[0].base_cost.to_f
-    days = (@date.to_date -  Time.now.to_date).to_i
+    days = (params[:date].to_date -  Time.now.to_date).to_i
     case days
       when 45..365 then
         cost
@@ -47,7 +47,7 @@ module ItinerariesHelper
 
   def time_diff(time_duration)
       selected_flight = []
-      itineraries = Flight.joins(:schedules).where(source: @source ,destinition: @destinition ,schedules: {day: @day}).includes(:schedules)
+      itineraries = Flight.joins(:schedules).where(source: params[:source].downcase ,destinition: params[:destinition].downcase ,schedules: {day: params[:date].to_date.strftime('%A').downcase}).include_model(:schedules)
       itineraries.each do |itinerary|
         flight = get_flights_schedules(itinerary)[0]
         seconds_diff = (flight.depart_time - flight.arrival_time).to_i.abs
@@ -62,11 +62,11 @@ module ItinerariesHelper
     end
 
 
-  def filter_filghts
+  def filter_flights
     sql = []
-    sql << "source = '#{@source}'"
-    sql << "destinition = '#{@destinition}'"
-    sql << "schedules.day = '#{@day}'"
+    sql << "source = '#{params[:source].downcase}'"
+    sql << "destinition = '#{params[:destinition].downcase}'"
+    sql << "schedules.day = '#{params[:date].to_date.strftime('%A').downcase}'"
     if params[:airline_name].present?
         params[:airline_name] = params[:airline_name].collect{|airline_name| "'" + airline_name + "'"}
         sql << "airlines.name in (#{params[:airline_name].join(',')})"
@@ -75,27 +75,9 @@ module ItinerariesHelper
       sql << "(schedules.arrival_time - schedules.depart_time <= '#{(params[:time_duration].to_i*3600).to_s}')"
     end
 
-    # if params[:airline_time].present?
-    #   time_query = []
-    #   date = Date.new(2000,01,01)
-    #   params[:airline_time].each do |key , value|
-    #     startt = params[:airline_time]["#{key}"][0].to_time
-    #     endt = params[:airline_time]["#{key}"][0].to_time
-    #     start_time = DateTime.new(date.year, date.month, date.day, startt.strftime("%H").to_i, startt.strftime("%M").to_i, startt.strftime("%S").to_i)
-    #     end_time = DateTime.new(date.year, date.month, date.day, endt.strftime("%H").to_i, endt.strftime("%M").to_i, endt.strftime("%S").to_i)
-    #     time_query << '(schedules.depart_time >= ? AND schedules.depart_time <= ? )'
-    #   end
-    #   sql << time_query.join(" OR ")
-    # end
     sql_query = sql.join(" AND ")
-    Flight.joins(:schedules).joins(:airline).where(sql_query).includes(:schedules)
+    Flight.joins(:schedules).joins(:airline).where(sql_query).include_model(:schedules)
 
-
-    # if params[:airline_time].present?
-    #   @itineraries = Flight.joins(:schedules).joins(:airline).where(a, params[]).includes(:schedules)
-    # else
-    #   @itineraries = Flight.joins(:schedules).joins(:airline).where(sql_query).includes(:schedules)
-    # end
   end
 
   def get_schedule_detail(booking)

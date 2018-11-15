@@ -9,4 +9,7 @@ class Schedule < ApplicationRecord
   validates :arrival_time, presence: true
   validates :flight_id, presence: true
   validates :base_cost, presence: true, numericality: { only_integer: true }
+
+  scope :include_model, ->(model_name) {includes(model_name)}
+
 end

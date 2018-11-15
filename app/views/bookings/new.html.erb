@@ -2,8 +2,8 @@
   <h2 class="text-center text-primary">Booking Details</h2>
   <div class="form-horizontal">
     <div hidden="hidden">
-      <input type="text" name="date" id="date" value="<%= @date %>">
-      <input type="text" name="cost" id="cost" value="<%= @cost %>">
+      <input type="text" name="date" id="date" value="<%= params[:date] %>">
+      <input type="text" name="cost" id="cost" value="<%= params[:cost] %>">
       <input type="text" name="schedule" id="schedule" value="<%= @schedule.id %>">
       <input type="text" name="user_id" id="user_id" value="<%= current_user.id %>">
     </div>
@@ -38,7 +38,7 @@
     <br>
     <div>
       <h4>FARE SUMMARY :</h4>
-          <span class="bold">Total Fare Charged : </span><span class="cost bold"><%= "₹ "+ @cost.to_s %></span>
+          <span class="bold">Total Fare Charged : </span><span class="cost bold"><%= "₹ "+ params[:cost].to_s %></span>
     </div>
     <div class="form-group">
       <%= link_to "CONTINUE",'javascript:void(0)', class: "btn form-control btn-primary", id: "booking_btn" %>

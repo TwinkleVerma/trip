@@ -1,11 +1,11 @@
 <div id="com">
   <div id="left-div">
-    <%= hidden_field_tag "source", @source%>
-    <%= hidden_field_tag "destinition", @destinition%>
-    <%= hidden_field_tag "date", @date%>
+    <%= hidden_field_tag "source", params[:source].downcase%>
+    <%= hidden_field_tag "destinition", params[:destinition].downcase%>
+    <%= hidden_field_tag "date", params[:date]%>
     <h4>Apply Filter</h4>
     <hr>
-    <p>Depart time from <%= @source.capitalize %></p>
+    <p>Depart time from <%= params[:source].capitalize %></p>
     <p class="time_from">12-6AM
       <%= check_box_tag "airlines[time][morning]", "morning", false, class: 'airlines_time_checkbox'%>
     </p>

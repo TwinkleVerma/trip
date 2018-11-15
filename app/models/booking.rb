@@ -12,6 +12,9 @@ class Booking < ApplicationRecord
   validates :schedule_id, presence: true
   validates :user_id, presence: true
 
+  scope :user_id, ->(id) { where('user_id = '+id.to_s) }
+
+  scope :most_recent, ->() { order("created_at DESC") }
 
   after_save :send_mail
 

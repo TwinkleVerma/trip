@@ -10,11 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if (User.where(email: user_registration_paramns[:email]).exists?)
+    if (User.where(email: user_registration_paramns[:email]).or(User.where(name: user_registration_paramns[:name])).exists?)
       flash[:danger] = "Can't sign up, Email Exist!"
       redirect_to root_path
     else
-      @user = User.new({name: user_registration_paramns[:name].downcase!, email: user_registration_paramns[:email], password: user_registration_paramns[:password]})
+      @user = User.new({name: user_registration_paramns[:name].downcase, email: user_registration_paramns[:email], password: user_registration_paramns[:password]})
       if @user.save
         flash[:success] = "Sign up successfully, First confirm your email then sign in"
         redirect_to root_path

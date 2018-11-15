@@ -3,7 +3,7 @@ class AirlinesController < ApplicationController
   def index
     @airline = Airline.all
     if params[:user].present?
-      @user = User.find(params[:user])
+      @user = User.find_by(id: params[:user])
     end
     authorize! :read, Airline, @airline
     respond_to do |format|
@@ -13,13 +13,16 @@ class AirlinesController < ApplicationController
   end
 
   def show
-    @airline = Airline.find(params[:id])
+    @airline = Airline.find_by(id: params[:id])
     if @airline.present?
       authorize! :show, @airline
-      @flights = @airline.flights & current_user.flights
-      if !@flights.present?
-        authorize! :show , @flights
+      @airline.flights.each do |flight|
+        @flights = Flight.joins(:users).flight_id(flight.id).distinct
+        if !@flights.present?
+          authorize! :show , @flights
+        end
       end
     end
   end
+
 end
