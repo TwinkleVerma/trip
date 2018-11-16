@@ -1,17 +1,18 @@
 class TwilioController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :find_user
+  @@twilio = TwilioService.new('1', '/twilio/avialable?user='+params[:user].to_s)
 
   def voice
-    response = TwilioService.new.voice_response
-    gather = TwilioService.new.gather('1', '/twilio/avialable?user='+params[:user].to_s)
+    response = @@twilio.voice_response
+    gather = @@twilio.gather
     gather.say(message: 'Hi '+@user.name+', this call is for your avialablity confirmation.If you are avialible, press 2. If not avialable, press 3')
     response.append(gather)
     render xml: response.to_s
   end
 
   def avialable
-    response = TwilioService.new.voice_response
+    response = @@twilio.voice_response
     user_selection = params[:Digits]
     case user_selection
     when "2"

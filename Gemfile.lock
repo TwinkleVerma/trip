@@ -300,8 +300,8 @@ GEM
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.4.0)
-    warden (1.2.7)
-      rack (>= 1.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -363,4 +363,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.4
+   1.16.2
